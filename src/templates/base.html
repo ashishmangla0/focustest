@@ -6,16 +6,13 @@
   <title>Document</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.min.css">
 </head>
 <body>
-  {% block header %}
-   this is header
-  {% endblock %}
+  {% block header %}{% include "partials/header.html" %}{% endblock %}
   <main role="main" id="main-content">
     {% block main %}{% endblock %}
   </main> 
-  {% block footer %}
-    this is footer
-  {% endblock %}
+  {% block footer %}{% include "partials/footer.html" %}{% endblock %}
 </body>
 </html>
