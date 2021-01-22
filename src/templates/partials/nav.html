@@ -1,0 +1,9 @@
+<ul class="header__menu" role="menubar">
+    {% for item in navlinks %}
+        <li role="menuitem" class="header__menu-item">
+            <a href="/" class="header__menu-link" tabindex="0" aria-current="page" data-hovermenu="{{item.title}}">
+                {{item.title | trim}}
+            </a>
+        </li>        
+    {% endfor %}
+</ul>

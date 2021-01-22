@@ -1,0 +1,50 @@
+{% set description = "home page" %}
+{% set keywords = "Harold Crye, crye-leike, homes for sale, real estate" %}
+{% extends "layout.html" %}
+ {% block pagecss %}{% endblock %}
+{% block main %}
+    {%block hero %}
+        {% include "partials/hero.html" %} 
+    {% endblock %} 
+    {%block homeabout %} 
+        {% include "partials/homeabout.html" %} 
+    {% endblock %}
+    {%block featurelisting %} 
+        {% include "partials/featureListing.html" %} 
+    {% endblock %}
+    {%block services %} 
+        {% include "partials/services.html" %} 
+    {% endblock %}
+    {%block common %} 
+        {% include "partials/common.html" %} 
+    {% endblock %}
+{% endblock %}
+ {% block js %}
+  <script src="js/slick.min.js"></script>
+<script>
+        const $propertySlider = $(".property__slider");
+        const propertyPrev =  document.querySelector(".property__btn--prev");
+        const propertyNext =  document.querySelector(".property__btn--next");
+        $propertySlider.slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            dots: false,
+            arrows: false,
+            infinite:false
+        });
+        $propertySlider.on('beforeChange', function(event, slick, currentSlide, nextSlide){
+            if(nextSlide > 0){
+                propertyPrev.classList.add("btn--show");
+            }
+            else if (nextSlide <= 0){
+                propertyPrev.classList.remove("btn--show");
+            }
+        });
+        propertyNext.addEventListener("click",function(){
+            $propertySlider.slick('slickNext');
+        });
+        propertyPrev.addEventListener("click",function(){
+            $propertySlider.slick('slickPrev');
+        });
+    </script>
+  {% endblock %}

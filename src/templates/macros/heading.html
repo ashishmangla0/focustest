@@ -1,0 +1,14 @@
+{% macro title(type, value , classes='', wrapper = 'false', titleUp='') %}
+{% if wrapper %}
+    <div class="block__title-wrap">
+        <h{{type}} class="{{classes}}" role="heading" aria-level="{{type}}">
+            {% if titleUp != null %} <span class="block__title-up">{{titleUp}}</span>   {% endif %}
+        <span class="block__title-content">{{value}}</span>
+            </h{{type}}>        
+    </div>
+    {% else %}
+    <h{{type}} class="block__title {{classes}}" aria-label=" Your Scheduled Emails" role="heading" aria-level="{{type}}">
+        <span class="block__title-content">{{value}}</span>
+            </h{{type}}>
+    {% endif %}
+  {% endmacro %}

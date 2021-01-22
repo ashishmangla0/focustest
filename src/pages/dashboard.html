@@ -1,0 +1,92 @@
+{% set description = "User Dashboard Page" %} {% set keywords = "Harold Crye,
+crye-leike,homes for sale, real estate" %} {% set heroIn = true %} {% set
+pageTitle= 'User dashboard'%} {% extends "layout.html" %} {% import
+"macros/inputFeilds.html" as forms %} {% block main %} {%block hero %} {%
+include "partials/hero.html" %} {% endblock %}
+<section class="block block--dashboard">
+  <img src="images/dots-long.png" class="about__dots" alt="" />
+  <div class="container block__container">
+    <div class="dashboard__top">
+        {{forms.link(value='Take a Tour',classes='btn',iconclass='info',iconpos='left')}}
+      {{forms.link(value='Back to Dashboard',classes='btn btn--border-invert',iconclass='left-arrow-long',iconpos='left')}}
+    </div>
+    <div class="row dashboard__list">
+      <div class="col-md-6 dashboard__list-item">
+        <div class="block__card block__card--bg block__card--pad1">
+          <h2 class="block__card-title block__card-title--right">
+            Welcome, Akshay Baldia
+            <div>
+              {{forms.link(value='Edit',classes='block__link--dark')}}
+              {{forms.link(value='Logout',classes='block__link--primary')}}
+            </div>
+          </h2>
+          <div class="dashboard__welcome dashboard__welcome--add">
+            <b class="dashboard__label"> Address </b>
+            <p class="dashboard__value">No address information entered.</p>
+          </div>
+          <div class="dashboard__welcome dashboard__welcome--cont">
+            <b class="dashboard__label"> Contact </b>
+            <p class="dashboard__value">Email: akshay.baldia@venture7.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 dashboard__list-item">
+        <div class="block__card block__card--bg block__card--pad1">
+          <h2 class="block__card-title block__card-title--icon">
+            <i class="icon icon-man"></i>
+            Virtual Agent Email Updates
+          </h2>
+          <div class="">
+            <p>
+              Get updates sent straight to your email inbox on your saved
+              searches and favorite properties.
+            </p>
+            <p>
+              {{forms.link(value='Setup My Virtual
+              Agent',classes='block__link--primary')}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 dashboard__list-item">
+        <div class="block__card block__card--bg block__card--pad1">
+          <h2 class="block__card-title block__card-title--icon">
+            <i class="icon icon-search"></i>
+            My Favorite Properties &amp; Tags
+          </h2>
+          <div class="">
+            <p>
+              To tag properties, first find them via the property search. On the
+              property's listing, click the icon to add that property to your
+              favorites or add another tag.
+            </p>
+            <p>
+              {{forms.link(value='Start a New
+              Search',classes='block__link--primary')}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 dashboard__list-item">
+        <div class="block__card block__card--bg block__card--pad1">
+          <h2 class="block__card-title block__card-title--icon">
+            <i class="icon icon-heart"></i>
+            My Saved Searches
+          </h2>
+          <div class="">
+            <p>
+              To add a saved search, create a new search and click the "save
+              search" button on the results page.
+            </p>
+            <p>
+              {{forms.link(value='Start a New
+              Search',classes='block__link--primary')}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{%block common %} {% include "partials/common.html" %} {% endblock %} {%
+endblock%}

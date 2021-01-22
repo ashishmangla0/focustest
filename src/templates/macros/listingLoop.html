@@ -1,0 +1,15 @@
+{% macro liststyle(loopitem, liclass, ulclass,type) %}
+    {% if type == 1%}
+    <ul class="list__type list__type--one {{ulclass}}">
+    {% elif type == 2 %}
+    <ul class="list__type list__type--two {{ulclass}}">
+    {% else %}
+    <ul class="list__type {{ulclass}}">
+    {% endif %}
+                {% for item in loopitem %}
+               <li class="list__item">
+                 {{item.content}}
+               </li>
+            {% endfor %}
+    </ul>
+{% endmacro %}

@@ -1,0 +1,73 @@
+{% macro field(name, value = '', type, label, id, required = false, classes) %}
+{% if type=="checkbox" or type=="radio" %}
+<label {% if id %}for={{id}}{% endif %} class="form__{{type}} {{classes}}">
+  <input type="{{ type }}" name="{{ name }}" {% if id %}id="{{id}}"{% endif %}/>
+  <span class="form__span">{{ value | escape }}</span>
+</label>
+{% else %}
+<div class="form__group">
+  <label {% if id %}for={{id}}{% endif %} class="form__label">{{label}} {% if required %}<sup>*</sup>{% endif %}</label>
+  <input {% if id %}id="{{id}}"{% endif %} type="{{type|default('text')}}" name="{{name}}" value="{{value|escape}}" required="{{required}}" class="form__input {{classes}}" />
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro textarea(name, value, rows = 3,classes,id) %}
+<label {% if id %}for={{id}}{% endif %} class="form__label">{{label}} {% if required %}<sup>*</sup>{% endif %}</label>
+  <textarea {% if id %}id="{{id}}"{% endif %} name="{{ name }}" rows="{{ rows }}"  class="form__input {{classes}}">{{ value|e }}</textarea>
+{% endmacro %}
+
+{% macro select(id, label, name,options) %}
+<div class="form__group">
+  <label {% if id %}for={{id}}{% endif %} class="form__label">{{label}} {% if required %}<sup>*</sup>{% endif %}</label>
+  <div class="form__select form__select--wrap">
+<select name="{{ name }}" class="form__input {{classes}}"{% if id %}id={{id}}{% endif %}>
+   {% for option in options %}
+    <option value="{{option | lower}}">{{option}}</option>
+    {% endfor %}
+</select>
+<i class=" icon icon-arrow-down" aria-hidden="true"></i>
+</div>
+</div>
+{% endmacro %}
+
+{% macro link(value, classes,iconclass,iconpos, url) %}
+  <a  href="{{url | default('#')}}" class="{{classes}} {%if iconpos == 'left' %}btn--icon btn--left-icon{% elif iconpos == 'right'%}btn--icon btn--right-icon{%else%}{% endif %}">{%if iconpos == "left"%}
+  <i class="icon icon-{{iconclass}}" aria-hidden="true"></i>
+  {{value}}
+  {% elif iconpos == "right"%}
+{{value}}
+    <i class="icon icon-{{iconclass}}" aria-hidden="true"></i>
+    {%else %}{{value}}{% endif %}
+</a>
+{% endmacro %}
+
+{% macro button(type, iconclass, value, classes, iconpos) %}
+ <button type="{{ type |default('submit')}}" class="btn {{classes}} {%if iconpos == 'left'%}btn--icon btn--left-icon{% elif iconpos == 'right'%}btn--icon btn--right-icon{%else%}{% endif %}">{%if iconpos == "left"%}
+  <i class="icon icon-{{iconclass}}" aria-hidden="true"></i>
+   {{value | default('Submit')}}
+  {% elif iconpos == "right"%}
+{{value}}
+    <i class="icon icon-{{iconclass}}" aria-hidden="true"></i>
+    {%else %}{{value}}{% endif %}
+</button>
+{% endmacro %}
+
+{% macro buttonModal(iconclass, value, classes, iconpos, dataToggle, dataTarget) %}
+ <button type="button" class="btn {{classes}} {%if iconpos == 'left'%}btn--icon btn--left-icon{% elif iconpos == 'right'%}btn--icon btn--right-icon{%else%}{% endif %}" data-toggle={{dataToggle}} data-target={{dataTarget}}>{%if iconpos == "left"%}
+  <i class="icon icon-{{iconclass}}" aria-hidden="true"></i>
+   {{value | default('Submit')}}
+  {% elif iconpos == "right"%}
+{{value}}
+    <i class="icon icon-{{iconclass}}" aria-hidden="true"></i>
+    {%else %}{{value}}{% endif %}
+</button>
+{% endmacro %}
+
+{% macro phone(name, value = '', label, id, required = false) %}
+<label {% if id %}for={{id}}{% endif %} class="form__label">{{label}} {% if required %}<sup>*</sup>{% endif %}</label>
+<div class="form__group form__group--tel">
+  <input class="form__input form__input--tel-code" type="tel" required="{{required}}" />
+  <input class="form__input form__input--tel" type="tel" required="{{required}}" />
+</div>
+{% endmacro %}
