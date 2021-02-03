@@ -1,0 +1,4 @@
+{% macro blocktitle(type, value , classes='') %}
+    <h{{type}} class="section__title {{classes}}" aria-label="{{value}}" role="heading" aria-level="{{type}}">
+        <span class="section__title-content">{{value}}</span>
+    </h{{type}}>{% endmacro %}

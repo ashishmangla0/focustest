@@ -3,7 +3,6 @@
 }
 %flexCol{
     flex-direction: column;
-
 }
 
 %displayfcol{
@@ -14,6 +13,15 @@
 %weight600{
     font-weight: 600;
 }
-%font18{
-    font-size: 1.125rem;
+
+%weight700{
+    font-weight: 700;
+}
+
+%font17{
+    font-size: 1.0625rem;
+}
+
+%font32{
+    font-size: 2rem;
 }

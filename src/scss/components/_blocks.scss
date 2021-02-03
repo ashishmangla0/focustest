@@ -5,4 +5,13 @@
         background: $bgGray;
     }
 
+    @include element(title){
+        @extend %weight700;
+        @extend %font32;
+        margin-bottom: rem(30px);
+        @include modifier(2){
+            background: green;
+        }
+    }
+
 }

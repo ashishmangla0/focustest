@@ -7,8 +7,10 @@
     {'title' : 'Rental Assistance','content':'Accompanied tours or virtual assistance '}
     ] %}
     {% import 'macros/servicesloop.html' as services %}
+    {% import 'macros/blocktitle.html' as blocktitle %}
 <section class="section">
     <div class="container">
+        {{blocktitle.blocktitle('2','Personal Moving Services')}}
         {{services.servicesloop(relocation,'moving')}}
     </div>
 </section>
