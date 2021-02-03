@@ -1,0 +1,19 @@
+{% macro servicesloop(list,img,classes='') %}
+<div class="row">
+    {% for item in list %}
+    <div class="service__item">
+        <div class="card service__card">
+            <picture>
+                <source srcset="images/{{img}}/{{img}}service-{{loop.index}}.webp 1x, images/{{img}}/{{img}}service-{{loop.index}}@2x.webp 2x" type="image/webp">
+                <img src="images/{{img}}/{{img}}service-{{loop.index}}.jpg" srcset="images/{{img}}/{{img}}service-{{loop.index}}.jpg 1x, images/{{img}}/{{img}}service-{{loop.index}}@2x.jpg 2x" alt="{{item.title}}">
+            </picture>
+            <div class="service__card-contentwrap">
+                <h3 class="service__card-title">{{ item.title }}</h3>
+                <p class="service__card-content">
+                    {{item.content}}
+                </p>
+            </div>
+        </div>  
+    </div>{% endfor %}
+</div>
+{% endmacro %}
