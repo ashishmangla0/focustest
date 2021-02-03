@@ -1,0 +1,14 @@
+{% set relocation= [
+    {'title' : 'Domestic Relocation Services','content':'From full service to limited benefits to lump sum'},
+    {'title' : 'International Relocation Services','content':'Providing all U.S and Canadian inbound logistical'},
+    {'title' : 'Elevated Relocation Allowance Program','content':'A full service lump sum option'},
+    {'title' : 'Program Management','content':'Total account management support'},
+    {'title' : 'Service Provider Network','content':'Trusted and vetted service partners'},
+    {'title' : 'Technology','content':'3 portal access 24/7'}
+    ] %}
+    {% import 'macros/servicesloop.html' as services %}
+<section class="section section--bg">
+    <div class="container">
+        {{services.servicesloop(relocation,'relocation')}}
+    </div>
+</section>

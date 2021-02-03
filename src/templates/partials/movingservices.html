@@ -1,0 +1,14 @@
+{% set relocation= [
+    {'title' : 'Selling Your Home','content':'Strategic marketing assistance through a licensed real estate agent'},
+    {'title' : 'Buying Your Home','content':'Strategic community search with a licensed real estate agent'},
+    {'title' : 'Temporary Living Accommodations','content':'Furnished corporate apartments or hotel accommodations'},
+    {'title' : 'Mortgage Assistance','content':'Preferred rates through our network of service partners'},
+    {'title' : 'Household Goods Move','content':'Full service van line or self move options'},
+    {'title' : 'Rental Assistance','content':'Accompanied tours or virtual assistance '}
+    ] %}
+    {% import 'macros/servicesloop.html' as services %}
+<section class="section">
+    <div class="container">
+        {{services.servicesloop(relocation,'moving')}}
+    </div>
+</section>
