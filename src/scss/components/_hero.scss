@@ -1,0 +1,11 @@
+@include block(section) {
+
+    @include modifier(hero) {
+
+    }
+    @include modifier(hero-in){
+        background:  $lightColor url('../images/hero-bg-in.webp') no-repeat top center;
+        min-height: rem(466px);
+        background-size: cover;
+    }
+}

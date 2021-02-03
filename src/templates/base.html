@@ -18,6 +18,7 @@
 <body>
   {% block header %}{% include "partials/header.html" %}{% endblock %}
   <main role="main" id="main-content">
+    {% include "partials/hero.html" %}
     {% block main %}{% endblock %}
   </main> 
   {% block footer %}{% include "partials/footer.html" %}{% endblock %}
