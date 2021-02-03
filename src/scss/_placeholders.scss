@@ -1,0 +1,19 @@
+%disflex{
+    display: flex;
+}
+%flexCol{
+    flex-direction: column;
+
+}
+
+%displayfcol{
+    @extend %disflex; 
+    @extend %flexCol; 
+}
+
+%weight600{
+    font-weight: 600;
+}
+%font18{
+    font-size: 1.125rem;
+}

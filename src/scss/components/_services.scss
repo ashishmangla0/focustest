@@ -1,0 +1,47 @@
+@include block(service) {
+    @include element(card){
+    border-radius: rem(6px) rem(6px) 0 0;
+    overflow: hidden;
+    position: relative;
+    }
+    &__item{
+       padding: 0 15px;
+       @include media-breakpoint-up(md) { 
+        max-width: 50%;
+        flex: 0 0 50%;
+    }
+       @include media-breakpoint-up(lg) { 
+           max-width: 33.33333333%;
+           flex: 0 0 33.33333333%;
+
+           &:not(:nth-last-child(-n+3)){
+               margin-bottom: rem(30px);
+           }
+       }
+       
+    }
+    @include element(card-contentwrap){
+        background: rgba($primaryColor, .80);
+        border-radius: rem(12px) rem(12px) 0 0;
+        position: absolute;
+        bottom: rem(-62px);
+        padding: rem(18px);
+        color: $lightColor;
+        width: 100%;
+
+        &:hover{
+            bottom: 0;
+        }
+    }
+    @include element(card-title){
+        @extend %weight600;
+        margin-bottom: rem(8px);
+        @extend %font18;
+        min-height: rem(54px);
+
+    }
+    @include element(card-content){
+        margin:0; 
+        min-height: rem(48px);
+    }
+}

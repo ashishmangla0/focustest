@@ -1,0 +1,8 @@
+@include block(section) {
+    position: relative;
+    padding: rem(70px) 0;
+    @include modifier(bg){
+        background: $bgGray;
+    }
+
+}
