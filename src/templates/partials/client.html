@@ -1,10 +1,29 @@
+{% set testimonials = [
+    {'content' : 'Focus Relocation was just who we needed to help us relocate our CFO from Michigan to TN. Not only were they thorough with every step of the process for our employee, they kept me in the loop of any questions or next steps so that I would be thoroughly educated and up to date on this move. As a result of our relationship with Focus, we now have a relocation policy and are totally ready to support our next relocation. Focus demonstrated a real commitment to service, integrity, and best in class relocation services. I highly recommend this team!',
+        'designation' : 'Senior Vice President, Human Resources'},
+        {'content' : 'Focus Relocation was just who we needed to help us relocate our CFO from Michigan to TN. Not only were they thorough with every step of the process for our employee, they kept me in the loop of any questions or next steps so that I would be thoroughly educated and up to date on this move. As a result of our relationship with Focus, we now have a relocation policy and are totally ready to support our next relocation. Focus demonstrated a real commitment to service, integrity, and best in class relocation services. I highly recommend this team!',
+        'designation' : 'Senior Vice President, Human Resources'},
+        {'content' : 'Focus Relocation was just who we needed to help us relocate our CFO from Michigan to TN. Not only were they thorough with every step of the process for our employee, they kept me in the loop of any questions or next steps so that I would be thoroughly educated and up to date on this move. As a result of our relationship with Focus, we now have a relocation policy and are totally ready to support our next relocation. Focus demonstrated a real commitment to service, integrity, and best in class relocation services. I highly recommend this team!',
+        'designation' : 'Senior Vice President, Human Resources'},
+        {'content' : 'Focus Relocation was just who we needed to help us relocate our CFO from Michigan to TN. Not only were they thorough with every step of the process for our employee, they kept me in the loop of any questions or next steps so that I would be thoroughly educated and up to date on this move. As a result of our relationship with Focus, we now have a relocation policy and are totally ready to support our next relocation. Focus demonstrated a real commitment to service, integrity, and best in class relocation services. I highly recommend this team!',
+        'designation' : 'Senior Vice President, Human Resources'}]
+    %}
 {% import 'macros/blocktitle.html' as blocktitle %}
-<section class="section">
+<section class="section ">
     <div class="container">
         {{blocktitle.blocktitle('2','Our Clients Love Our Services')}}
 
-        <div class="card">
-                
+        <div class="section__card section__card--bg">
+            <div class="testimonials">
+                {% for testimonial in testimonials %}
+                <div class="list__item">
+                  {{testimonial.content}}
+                  {{testimonial.designation}}
+                </div>
+             {% endfor %}
+            </div>
+
+                 
         </div>
     </div>
 </section>

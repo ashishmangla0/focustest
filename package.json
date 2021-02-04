@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "gulp",
-    "build": "gulp build"
+    "build": "gulp build",
+    "watch": "gulp watchFile"
   },
   "author": "",
   "license": "ISC",
@@ -29,6 +30,7 @@
   },
   "dependencies": {
     "babel-register": "^6.26.0",
-    "babelify": "^10.0.0"
+    "babelify": "^10.0.0",
+    "glob": "^7.1.6"
   }
 }

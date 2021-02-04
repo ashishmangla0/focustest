@@ -1,11 +1,13 @@
-import { series, parallel, src, dest } from "gulp";
+import { series, parallel, src, dest, watch } from "gulp";
+import {sync} from 'glob';
 import sass from "gulp-sass";
-import { join } from "path";
+import { join,basename } from "path";
 import tildeImport from "node-sass-tilde-importer";
 import webp from "gulp-webp";
 import imagemin from "gulp-imagemin";
 import rename from "gulp-rename";
-import gulpdata from'gulp-data';
+import {babel} from 'gulp-babel';
+import {uglify} from 'gulp-u'
 
 import nunjucksRende from "gulp-nunjucks-render";
 import gulpNunjucksRender from "gulp-nunjucks-render";
@@ -15,9 +17,11 @@ const paths = {
   dist: join(__dirname, "dist"),
 };
 
+const scssPath = sync(join(paths.src, "scss", "**/*.scss"));
+const jsPath = sync(join(paths.src, "js", "**/*.js"));
 //compile sccc to css
 const compileSCSS = () => {
-  return src(join(paths.src, "scss", "**/*.scss"))
+  return src(scssPath)
     .pipe(sass({ importer: tildeImport }).on("error", sass.logError))
     .pipe(dest(join(paths.dist, "css")));
 };
@@ -41,6 +45,10 @@ const minifyCss = () => {
       .pipe(dest(join(paths.dist, "css")))
   );
 };
+
+// const compileJs = () => {
+//   return src(scssPath)
+// }
 const webpConvert = () => {
   return src(join(paths.src, "images", "**/*.{jpg,png}"))
     .pipe(webp())
@@ -100,11 +108,19 @@ const nunjucksPhp = () => {
     .pipe(dest(join(paths.dist,'php')));
 };
 
+const watchFiles = () => {
+  const scssFiles = scssPath;
+  console.log(scssFiles);
+  watch(scssFiles,series(compileSCSS,minifyCss));
+  watch(scssFiles,series(compileSCSS,minifyCss));
+  
+};
 
+export const watchFile = watchFiles ;
 
 export const build = series(
   parallel(nunjucksHtml,nunjucksPhp),
-  parallel(compileSCSS, minifyCss),
+  compileSCSS, minifyCss,
   parallel(webpConvert, imgCompress),
   copyFonts,
   copyJs

@@ -1,3 +1,11 @@
-@include block(card) {
-    @extend .service__card;
+@include block(section) {
+    @include element(card){
+        border-radius: rem(6px);
+
+        @include modifier(bg){
+            @extend .section--bg;
+            background: orange;
+        }
+    }
+    
 }
