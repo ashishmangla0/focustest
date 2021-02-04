@@ -5,6 +5,10 @@
     flex-direction: column;
 }
 
+%alignCenter{
+    align-items: center;
+}
+
 %displayfcol{
     @extend %disflex; 
     @extend %flexCol; 

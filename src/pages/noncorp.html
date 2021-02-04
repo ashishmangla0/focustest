@@ -1,0 +1,20 @@
+
+{% set heroInner = true %}
+{% set heroTitle = 'Non-Corporate Sponsored Personal Moving Services'%}
+{% import 'macros/servicesloop.html' as services %}
+{% import 'macros/blocktitle.html' as blocktitle %}
+{% set nonnorp= [
+    {'title' : 'Home Marketing','content':'Strategic marketing assistance through a licensed real estate agent'},
+    {'title' : 'Home Finding','content':'Strategic community search with a licensed real estate agent'},
+    {'title' : 'Temporary Living Accommodations','content':'Furnished corporate apartments or hotel accommodations'},
+    {'title' : 'Mortgage Assistance','content':'Preferred rates through our network of service partners'},
+    {'title' : 'Household Goods Move','content':'Full service van line or self move options'},
+    {'title' :'Rental Assistance','content':'Accompanied tours or virtual assistance '}] %}
+{% extends "base.html" %}
+{% block main %}
+    <section class="section">
+        <div class="container">
+            {{blocktitle.blocktitle('2','Non-Corporate Sponsored Personal Moving Services')}}
+            {{services.servicesloop(nonnorp,'moving')}}
+        </div>
+    </section>{% endblock %}

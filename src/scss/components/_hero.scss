@@ -7,5 +7,27 @@
         background:  $lightColor url('../images/hero-bg-in.webp') no-repeat top center;
         min-height: rem(466px);
         background-size: cover;
+        @extend %disflex; 
+        &::before{
+            content: '';
+            position: absolute;
+            background: rgba($textColor, .6);
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        @include element(title){
+            color: $lightColor;
+            margin:0;
+        }
+    }
+}
+@include block(hero){
+    @include element(container){
+        @extend %disflex; 
+        @extend %alignCenter;
+        position: relative;
+        z-index: 2;
     }
 }

@@ -35,7 +35,7 @@
   @include element(card-title) {
     @extend %weight600;
     margin-bottom: rem(8px);
-    @extend %font17;
+    font-size: rem(18px);
     min-height: rem(54px);
   }
   @include element(card-content) {

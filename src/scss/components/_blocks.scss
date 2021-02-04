@@ -8,10 +8,20 @@
     @include element(title){
         @extend %weight700;
         @extend %font32;
-        margin-bottom: rem(30px);
+        margin-bottom: rem(45px);
         @include modifier(2){
             background: green;
+            .title-content{
+                display: inline-block;
+            }
         }
+        position: relative;
+    }
+    @include element(title-content){
+        display: block;
+    }
+    @include element(title-wave){
+        position: absolute;
     }
 
 }

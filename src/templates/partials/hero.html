@@ -1,5 +1,11 @@
+
+{% import 'macros/blocktitle.html' as blocktitle %}
 <section class="section section--hero {{'section--hero-in' if heroInner else 'section--hero' }} ">
-    <div class="container">
-        
+    <div class="container hero__container">
+        {% if heroInner %}
+        {{blocktitle.blocktitle('1',heroTitle)}}
+        {% else %}
+  I am good!
+{% endif %}
     </div>
 </section>
