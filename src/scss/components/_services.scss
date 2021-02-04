@@ -27,7 +27,6 @@
     padding: rem(18px);
     color: $lightColor;
     width: 100%;
-
     &:hover {
       bottom: 0;
     }
@@ -35,7 +34,7 @@
   @include element(card-title) {
     @extend %weight600;
     margin-bottom: rem(8px);
-    font-size: rem(18px);
+    @extend %font18;
     min-height: rem(54px);
   }
   @include element(card-content) {

@@ -1,11 +1,10 @@
 @include block(section) {
-    @include element(card){
-        border-radius: rem(6px);
-
-        @include modifier(bg){
-            @extend .section--bg;
-            background: orange;
-        }
+  @include element(card) {
+    border-radius: rem(6px);
+    padding: rem(30px);
+    position: relative;
+    @include modifier(bg) {
+      @extend .section--bg;
     }
-    
+  }
 }

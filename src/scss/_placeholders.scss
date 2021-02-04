@@ -1,31 +1,38 @@
-%disflex{
-    display: flex;
+%disflex {
+  display: flex;
 }
-%flexCol{
-    flex-direction: column;
-}
-
-%alignCenter{
-    align-items: center;
+%flexCol {
+  flex-direction: column;
 }
 
-%displayfcol{
-    @extend %disflex; 
-    @extend %flexCol; 
+%alignCenter {
+  align-items: center;
 }
 
-%weight600{
-    font-weight: 600;
+%displayfcol {
+  @extend %disflex;
+  @extend %flexCol;
 }
 
-%weight700{
-    font-weight: 700;
+%weight600 {
+  font-weight: 600;
 }
 
-%font17{
-    font-size: 1.0625rem;
+%weight700 {
+  font-weight: 700;
 }
 
-%font32{
-    font-size: 2rem;
+%font17 {
+  font-size: 1.0625rem;
+}
+
+%font18 {
+  font-size: 1.125rem;
+}
+
+%font32 {
+  font-size: 2rem;
+}
+%primaryColor {
+  color: $primaryColor;
 }

@@ -1,27 +1,24 @@
 @include block(section) {
+  position: relative;
+  padding: rem(70px) 0;
+  @include modifier(bg) {
+    background: $bgGray;
+  }
+  @include element(title) {
+    @extend %weight700;
+    @extend %font32;
+    margin-bottom: rem(45px);
+    @include modifier(2) {
+      .title-content {
+        display: inline-block;
+      }
+    }
     position: relative;
-    padding: rem(70px) 0;
-    @include modifier(bg){
-        background: $bgGray;
-    }
-
-    @include element(title){
-        @extend %weight700;
-        @extend %font32;
-        margin-bottom: rem(45px);
-        @include modifier(2){
-            background: green;
-            .title-content{
-                display: inline-block;
-            }
-        }
-        position: relative;
-    }
-    @include element(title-content){
-        display: block;
-    }
-    @include element(title-wave){
-        position: absolute;
-    }
-
+  }
+  @include element(title-content) {
+    display: block;
+  }
+  @include element(title-wave) {
+    position: absolute;
+  }
 }

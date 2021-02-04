@@ -11,19 +11,23 @@ html,
 body {
   height: 100%;
 }
-body{
-  margin:0;
+body {
+  margin: 0;
   line-height: 1.5;
   font-size: 1rem;
   @extend %displayfcol;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-main{
+main {
   flex-shrink: 0;
 }
 
-img{
+img {
   max-width: 100%;
   vertical-align: middle;
+}
+b,
+strong {
+  @extend %weight700;
 }

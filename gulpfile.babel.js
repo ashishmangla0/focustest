@@ -6,8 +6,8 @@ import tildeImport from "node-sass-tilde-importer";
 import webp from "gulp-webp";
 import imagemin from "gulp-imagemin";
 import rename from "gulp-rename";
-import {babel} from 'gulp-babel';
-import {uglify} from 'gulp-u'
+// import {babel} from 'gulp-babel';
+// import {uglify} from 'gulp-u'
 
 import nunjucksRende from "gulp-nunjucks-render";
 import gulpNunjucksRender from "gulp-nunjucks-render";
@@ -19,6 +19,8 @@ const paths = {
 
 const scssPath = sync(join(paths.src, "scss", "**/*.scss"));
 const jsPath = sync(join(paths.src, "js", "**/*.js"));
+const  nunjucksPathHTML = sync(join(paths.src, "pages", "*.{html,nunjucks,.njk}"));
+const nunjucksTemplates = sync(join(paths.src,'templates'))
 //compile sccc to css
 const compileSCSS = () => {
   return src(scssPath)
@@ -87,7 +89,7 @@ const copyJs = () => {
 };
 
 const nunjucksHtml = () => {
-  return src(join(paths.src, "pages", "*.{html,nunjucks,.njk}"))
+  return src(nunjucksPathHTML)
     .pipe(
       gulpNunjucksRender({
         path: [`${paths.src}/templates`],
@@ -110,10 +112,15 @@ const nunjucksPhp = () => {
 
 const watchFiles = () => {
   const scssFiles = scssPath;
+  const nunjucksFiles = nunjucksPathHTML;
   console.log(scssFiles);
-  watch(scssFiles,series(compileSCSS,minifyCss));
-  watch(scssFiles,series(compileSCSS,minifyCss));
   
+ // watch(scssFiles,series(compileSCSS,minifyCss));
+  watch(scssFiles,series(compileSCSS,minifyCss));
+  console.log(nunjucksFiles);
+ watch(nunjucksFiles,nunjucksHtml);
+ console.log(nunjucksTemplates);
+  watch(nunjucksTemplates,nunjucksHtml)
 };
 
 export const watchFile = watchFiles ;

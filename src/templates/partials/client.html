@@ -1,29 +1,36 @@
 {% set testimonials = [
     {'content' : 'Focus Relocation was just who we needed to help us relocate our CFO from Michigan to TN. Not only were they thorough with every step of the process for our employee, they kept me in the loop of any questions or next steps so that I would be thoroughly educated and up to date on this move. As a result of our relationship with Focus, we now have a relocation policy and are totally ready to support our next relocation. Focus demonstrated a real commitment to service, integrity, and best in class relocation services. I highly recommend this team!',
-        'designation' : 'Senior Vice President, Human Resources'},
-        {'content' : 'Focus Relocation was just who we needed to help us relocate our CFO from Michigan to TN. Not only were they thorough with every step of the process for our employee, they kept me in the loop of any questions or next steps so that I would be thoroughly educated and up to date on this move. As a result of our relationship with Focus, we now have a relocation policy and are totally ready to support our next relocation. Focus demonstrated a real commitment to service, integrity, and best in class relocation services. I highly recommend this team!',
-        'designation' : 'Senior Vice President, Human Resources'},
-        {'content' : 'Focus Relocation was just who we needed to help us relocate our CFO from Michigan to TN. Not only were they thorough with every step of the process for our employee, they kept me in the loop of any questions or next steps so that I would be thoroughly educated and up to date on this move. As a result of our relationship with Focus, we now have a relocation policy and are totally ready to support our next relocation. Focus demonstrated a real commitment to service, integrity, and best in class relocation services. I highly recommend this team!',
-        'designation' : 'Senior Vice President, Human Resources'},
-        {'content' : 'Focus Relocation was just who we needed to help us relocate our CFO from Michigan to TN. Not only were they thorough with every step of the process for our employee, they kept me in the loop of any questions or next steps so that I would be thoroughly educated and up to date on this move. As a result of our relationship with Focus, we now have a relocation policy and are totally ready to support our next relocation. Focus demonstrated a real commitment to service, integrity, and best in class relocation services. I highly recommend this team!',
-        'designation' : 'Senior Vice President, Human Resources'}]
+     'designation' : 'Senior Vice President, Human Resources'},
+     {'content' : 'Focus Relocation was just who we needed to help us relocate our CFO from Michigan to TN. Not only were they thorough with every step of the process for our employee, they kept me in the loop of any questions or next steps so that I would be thoroughly educated and up to date on this move. As a result of our relationship with Focus, we now have a relocation policy and are totally ready to support our next relocation. Focus demonstrated a real commitment to service, integrity, and best in class relocation services. I highly recommend this team!',
+     'designation' : 'Senior Vice President, Human Resources'},
+     {'content' : 'Focus Relocation was just who we needed to help us relocate our CFO from Michigan to TN. Not only were they thorough with every step of the process for our employee, they kept me in the loop of any questions or next steps so that I would be thoroughly educated and up to date on this move. As a result of our relationship with Focus, we now have a relocation policy and are totally ready to support our next relocation. Focus demonstrated a real commitment to service, integrity, and best in class relocation services. I highly recommend this team!',
+     'designation' : 'Senior Vice President, Human Resources'},
+     {'content' : 'Focus Relocation was just who we needed to help us relocate our CFO from Michigan to TN. Not only were they thorough with every step of the process for our employee, they kept me in the loop of any questions or next steps so that I would be thoroughly educated and up to date on this move. As a result of our relationship with Focus, we now have a relocation policy and are totally ready to support our next relocation. Focus demonstrated a real commitment to service, integrity, and best in class relocation services. I highly recommend this team!',
+     'designation' : 'Senior Vice President, Human Resources'}
+     
+     ]
     %}
 {% import 'macros/blocktitle.html' as blocktitle %}
-<section class="section ">
+<section class="section section--testimonials">
     <div class="container">
         {{blocktitle.blocktitle('2','Our Clients Love Our Services')}}
-
         <div class="section__card section__card--bg">
-            <div class="testimonials">
-                {% for testimonial in testimonials %}
-                <div class="list__item">
-                  {{testimonial.content}}
-                  {{testimonial.designation}}
+            <div class="testimonials testimonials--slider"> 
+                {% for testimonial in testimonials %} 
+                <div class="testimonials__item">
+                    <div class="testimonials__content">
+                        {{testimonial.content}}
+                    </div>
+                  <b class="testimonials__dest">{{testimonial.designation}}</b>
                 </div>
              {% endfor %}
             </div>
-
-                 
+            <svg xmlns="http://www.w3.org/2000/svg" width="84" height="56" viewBox="0 0 22.225 14.817" class="testimonials__quote">
+                <path fill="#399834" fill-rule="evenodd" d="M4.91 9.88a4.94 4.94 0 114.97-4.94A9.88 9.88 0 010 14.82s3.23-1.21 4.91-4.94zm7.44-4.94a4.94 4.94 0 019.88 0 9.88 9.88 0 01-9.88 9.88s3.23-1.21 4.91-4.94a4.93 4.93 0 01-4.91-4.94z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1110" height="109" viewBox="0 0 293.687 28.84" class="testimonials__wave">
+                <g fill="#399846" data-name="Group 5584" opacity=".08"><path d="M293.69 12.54s-28.63-20.23-111.67 0C89.52 35.06 38.54 22.12 0 4.84c0 0 52.13 45.3 189.15 11.69 61.4-16.68 104.54-4 104.54-4z"/><path d="M231.63 2.8s-.63-9.78-67.7 6.56C89.2 27.56 44.44 18.24 13.31 4.29c0 0 45.67 35.44 156.36 8.3C219.28-.9 231.62 2.8 231.62 2.8z"/></g>
+            </svg>
         </div>
     </div>
 </section>

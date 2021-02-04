@@ -1,0 +1,33 @@
+@include block(section){
+    @include modifier(testimonials){
+        @include element(card){
+            padding: 0;
+            line-height: 1;
+        }
+    }
+}
+@include block(testimonials) {
+    padding: rem(40px) rem(40px) 0 rem(40px);
+    line-height: 1.5;
+  @include element(content) {
+    margin-bottom: rem(10px);
+  }
+  @include element(dest) {
+    @extend %primaryColor;
+    @extend %font18;
+  }
+  @include element(quote) {
+    position: absolute;
+    right: 0;
+    width: auto;
+    height: rem(130px);
+    bottom: rem(-30px);
+  }
+  @include element(wave){
+      width: 100%;
+      height: auto;
+  }
+  @include modifier(slider){
+
+  }
+}
