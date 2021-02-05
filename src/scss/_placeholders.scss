@@ -36,3 +36,18 @@
 %primaryColor {
   color: $primaryColor;
 }
+
+%nostyle {
+  margin:0;
+  list-style: none;
+  padding: 0;
+}
+
+%textdecnon{
+  text-decoration: none;
+}
+%notlast{
+  &:not(:last-child) {
+    margin-bottom: 1.25rem;
+  }
+}

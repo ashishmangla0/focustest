@@ -20,6 +20,11 @@
       color: $lightColor;
       margin: 0;
     }
+    @include element(title-wave){
+        path{
+            fill: $lightColor;
+        }
+    }
   }
 }
 @include block(hero) {

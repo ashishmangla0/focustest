@@ -1,3 +1,56 @@
 @include block(footer) {
   margin-top: auto;
+  background: $bgGrayDark;
+  padding: rem(75px) 0;
+  color: $lightColor;
+  position: relative;
+  @include element(title){
+    margin-bottom: rem(20px);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  @include element(picture) {
+    display: inline-block;
+    width: 100%;
+    img {
+      width: 100%;
+    }
+    @extend %notlast;
+  }
+  @include element(list) {
+    @extend %nostyle;
+  }
+  @include element(item) {
+    @extend %notlast;
+  }
+  @include element(link) {
+    color: $footerText;
+    @extend %textdecnon;
+  }
+  @include element(address) {
+    @extend .footer__link;
+  }
+  @include element(col){
+    @extend %notlast;
+  }
+  @include element(wave){
+      &-top{
+        position: absolute;
+        top:rem(10px);
+        left:0;
+        width:23%;
+        height: auto;
+      }
+      &-bottom{
+        width: 34%;
+        left: 38%;
+        top: 50%;
+        position: absolute;
+        transform: translate(-50%, 50%);
+        height: auto;
+        path{
+            fill: $lightColor;
+        }
+      }
+  }
 }

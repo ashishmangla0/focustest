@@ -21,4 +21,16 @@
   @include element(title-wave) {
     position: absolute;
   }
+  @include element(highlight){
+      color: $primaryColor;
+      @extend %weight700;
+  }
+  @include element(content){
+      p{
+          &:last-child{
+              margin: 0;
+          }
+      }
+  }
+ 
 }
