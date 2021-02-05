@@ -22,7 +22,8 @@
     }
     ] %}
 {% block main %}
-    <section class="section section--diff">
+    <section class="section section--diff section--wave section--bgtop">
+        <div class="section__wave"></div>
         <div class="container">
             {% for difference in differences %}
             <div class="section__row {{ 'section__row--even' if loop.index%2 == 0 else 'section__row--odd' }}">

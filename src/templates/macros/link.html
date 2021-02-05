@@ -1,3 +1,1 @@
-{% macro link(href) %}
-    <a href="{{href|default('#')}}"></a>
-{% endmacro %}
+{% macro link(href, value,classes) %}<a href="{{href|default('#')}}" class="{{classes}}">{{value}}</a>{% endmacro %}

@@ -1,7 +1,35 @@
 
 {% set heroInner = false %}
 {% extends "base.html" %}
+{% import 'macros/picture.html' as pictures %}
+{% import 'macros/blocktitle.html' as blocktitle %}
+{% set differences = [
+    {
+        'contents':[
+            {'content': "Relocation is more than moving critical talent from Point A to Point B. It's about ensuring your mobility program meets the needs of all business stakeholders within your organization. It's also about finding a partner that embraces your company culture and vision, and works with you to develop a mobility program that meets each critical need."}
+        ]
+    }] %}
 {% block main %}
+<section class="section section--wave section--bgtop">
+    <div class="section__wave"></div>
+    <div class="container">
+        {% for difference in differences %}
+        <div class="section__row {{ 'section__row--even' if loop.index%2 == 0 else 'section__row--odd' }}">
+            <div class="col-md-6 {{ 'section__img--right' if loop.index%2 == 0 else 'section__img--left' }}">
+                {{pictures.picture(['images/','home-focus']|join(),'','jpg','')}}
+            </div>
+            <div class="col-md-6 {{ 'section__content--leftcenter' if loop.index%2 == 0 else 'section__content--rightcenter' }}">   
+                {{blocktitle.blocktitle('2','Focused on Today for Your Tomorrow','section__title--2')}}
+                <div class="section__content">
+                    {% for content in difference.contents%}
+                    <p>
+                        {{content.content | escape}}
+                    </p>{% endfor %}
+                </div>
+            </div>
+        </div>{% endfor %}
+    </div>
+</section>
     {% include "partials/relocationrervices.html" %}
     {% include "partials/movingservices.html" %}
     {% include "partials/about.html" %}

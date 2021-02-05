@@ -12,7 +12,8 @@
     {'title' :'Rental Assistance','content':'Accompanied tours or virtual assistance '}] %}
 {% extends "base.html" %}
 {% block main %}
-    <section class="section">
+    <section class="section section--bg section--bgtop section--wave">
+        <div class="section__wave"></div>
         <div class="container">
             {{blocktitle.blocktitle('2','Non-Corporate Sponsored Personal Moving Services')}}
             {{services.servicesloop(nonnorp,'moving')}}

@@ -1,17 +1,43 @@
 @include block(section) {
   position: relative;
   padding: rem(70px) 0;
+  @include modifier(wave){
+    margin-top: rem(60px);
+    padding-top: 3rem;
+    @include element(wave){
+      width: 100%;
+      height: 60px;
+      position: absolute;
+      top: -60px;
+      background: url(../images/wave-white.svg);
+      background-size: cover;
+    }
+  }
   @include modifier(bg) {
     background: $bgGray;
+    @include element(wave){
+     
+      background: url(../images/wave1.svg);
+     
+    }
+    &top{
+      margin-top: 0;
+      padding-top: 3.5rem;
+      
+    }
   }
+
   @include element(title) {
     @extend %weight700;
     @extend %font32;
     margin-bottom: rem(45px);
     @include modifier(2) {
-      .title-content {
-        display: inline-block;
+      .section__title-content {
+        display: inline;
       }
+      .section__title-wave {
+        position: unset;
+    }
     }
     position: relative;
   }
@@ -21,43 +47,44 @@
   @include element(title-wave) {
     position: absolute;
   }
-  @include element(highlight){
-      color: $primaryColor;
-      @extend %weight600;
+  @include element(highlight) {
+    color: $primaryColor;
+    @extend %weight600;
   }
-  @include element(content){
-    @include modifier(left){
-      &center{
-     display: flex;
-     align-items: center;
+  @include element(content) {
+    @include modifier(left) {
+      &center {
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        align-items: center;
       }
-
     }
-    @include modifier(right){
-      &center{
+    @include modifier(right) {
+      &center {
         @extend .section__content--leftcenter;
       }
     }
-      p{
-          &:last-child{
-              margin: 0;
-          }
+    p {
+      &:last-child {
+        margin: 0;
       }
+    }
   }
 
-  @include modifier(ccinfo){
-      @include element(card){
-        @extend %notlast30
-      }
+  @include modifier(ccinfo) {
+    @include element(card) {
+      @extend %notlast30;
+    }
   }
 
-  @include element(row){
+  @include element(row) {
     @extend .row;
 
-    @include modifier(even){
+    @include modifier(even) {
       @extend %rowreverse;
     }
   }
- 
- 
 }

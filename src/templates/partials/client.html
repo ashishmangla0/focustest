@@ -12,18 +12,15 @@
     %}
 {% import 'macros/blocktitle.html' as blocktitle %}
 <section class="section section--testimonials">
-    <div class="container">
-        {{blocktitle.blocktitle('2','Our Clients Love Our Services')}}
+    <div class="container">{{blocktitle.blocktitle('2','Our Clients Love Our Services')}}
         <div class="section__card section__card--bg section__card--nobor">
             <div class="testimonials testimonials--slider"> 
-                {% for testimonial in testimonials %} 
-                <div class="testimonials__item">
+                {% for testimonial in testimonials %}<div class="testimonials__item">
                     <div class="testimonials__content">
                         {{testimonial.content}}
                     </div>
                   <b class="testimonials__dest">{{testimonial.designation}}</b>
-                </div>
-             {% endfor %}
+                </div>{% endfor %}
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" width="84" height="56" viewBox="0 0 22.225 14.817" class="testimonials__quote">
                 <path fill="#399834" fill-rule="evenodd" d="M4.91 9.88a4.94 4.94 0 114.97-4.94A9.88 9.88 0 010 14.82s3.23-1.21 4.91-4.94zm7.44-4.94a4.94 4.94 0 019.88 0 9.88 9.88 0 01-9.88 9.88s3.23-1.21 4.91-4.94a4.93 4.93 0 01-4.91-4.94z"/>

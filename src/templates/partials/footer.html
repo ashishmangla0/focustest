@@ -6,8 +6,7 @@
 {title: 'worldwideerc'},
 {title: 'nashville'}
 ]
-%}
-<footer class="footer">
+%}<footer class="footer">
   <svg xmlns="http://www.w3.org/2000/svg" width="1110" height="109" viewBox="0 0 293.687 28.84" class="footer__wave-top">
     <g fill="#399846" data-name="Group 5584" opacity=".20"><path d="M293.69 12.54s-28.63-20.23-111.67 0C89.52 35.06 38.54 22.12 0 4.84c0 0 52.13 45.3 189.15 11.69 61.4-16.68 104.54-4 104.54-4z"></path><path d="M231.63 2.8s-.63-9.78-67.7 6.56C89.2 27.56 44.44 18.24 13.31 4.29c0 0 45.67 35.44 156.36 8.3C219.28-.9 231.62 2.8 231.62 2.8z"></path></g>
 </svg>
@@ -61,13 +60,8 @@
         <h5 class="footer__title">
           Our Partners
         </h5>
-        <div class="row">
-          {% for footerImage in footerImages | batch(3) %}
-          <div class="{{'col-md-5' if loop.index==1 else 'col-md-7' }}">
-            {% for footerImages in footerImage %}
-            {{pictures.picture(['images/',footerImages.title]|join(),footerImages.title,'png','footer__picture')}}
-            {% endfor %}
-          </div>{% endfor %}
+        <div class="row">{% for footerImage in footerImages | batch(3) %}
+          <div class="{{'col-md-5' if loop.index==1 else 'col-md-7'}}">{% for footerImages in footerImage %}{{pictures.picture(['images/',footerImages.title]|join(),footerImages.title,'png','footer__picture')}}{% endfor %}</div>{% endfor %}
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@
       padding: rem(20px) rem(30px);
     }
     @include modifier(bg) {
-      @extend .section--bg;
+      background: $bgGray;
     }
     @include modifier(nobor) {
       border: none;
@@ -17,6 +17,9 @@
     @include modifier(lefticon) {
       display: flex;
       padding: 0;
+    }
+    @include modifier(center){
+      text-align: center;
     }
   }
   @include element(card-left) {
@@ -37,4 +40,5 @@
   @include element(card-link){
    @extend %textdecnon;
   }
+  
 }

@@ -1,0 +1,47 @@
+{% set heroInner = true %}
+{% set heroTitle = 'Login' %}
+{% import 'macros/blocktitle.html' as blocktitle %}
+{% import "macros/link.html" as links %}
+{% extends "base.html" %}
+{% set logins = [
+{
+'title': 'Transferee Portal',
+'desc' : 'I am an employee of a company that is using Focus Relocation to coordinate my move and relocation services.',
+'link' : 'asd',
+'linktitle' : 'Login'
+},
+{
+'title': 'Client Portal',
+'desc' : 'I represent a company that is using Focus Relocation to manage relocation services for all of our employees.',
+'link' : 'asd',
+'linktitle' : 'Login'
+},
+{
+'title': 'Service Partner Portal',
+'desc' : "I work for a company that provides services to Focus Relocation's clients and moves.",
+'link' : 'asd',
+'linktitle' : 'Login'
+}
+]%}
+{% block main %}
+<section class="section section--bgtop section--wave">
+    <div class="section__wave"></div>
+    <div class="container">
+        {{blocktitle.blocktitle('2','Login to Access Your Account')}}
+        <div class="row">
+            {% for login in logins %}
+            <div class="col-lg-4">
+                <div class="section__card section__card--bg section__card--center">
+                    <h3 class="section__card-title">
+                        {{login.title}}
+                    </h3>
+                    <p>
+                        {{login.desc}}
+                    </p>
+                    {{links.link(login.link,login.linktitle,'btn btn--primary')}}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>{% endblock %}
