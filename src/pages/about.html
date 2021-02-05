@@ -1,0 +1,25 @@
+{% set heroInner = true %}
+{% set heroTitle = 'About Us' %}
+{% import 'macros/blocktitle.html' as blocktitle %}
+{% extends "base.html" %}
+{% block main %}
+<section class="section section--bg">
+    <div class="container">
+        {{blocktitle.blocktitle('2','Innovative | Flexible | Connected ')}}
+        <div class="section__content">
+            <p>
+                Focus Relocation, Inc., a mid-size relocation management company headquartered In Nashville, TN, has been providing relocation solutions 
+    and outstanding service to clients and their relocating employees for over 20 years. Focus is a trusted relocation service partner for many 
+    corporate clients across the US and some global locations.
+            </p>
+            <p>
+                The cornerstone of our service delivery model is offering <b class="section__highlight">innovative</b> and <b class="section__highlight">flexible</b> solutions while staying connected to the evolving industry 
+    trends.
+            </p>
+            <p>
+                These are hallmarks of the outstanding customer service you will come to expect from us. 
+            </p>
+        </div>
+    
+    </div>
+</section>{% endblock %}
