@@ -1,0 +1,6 @@
+{% macro picture(url , alt,ext,classes) %}
+<picture class={{classes}}>
+    <source srcset="{{url}}.webp 1x , {{url}}@2x.webp 2x" type="image/webp">
+  <img src="{{url}}.{{ext}}" alt="{{alt}}" srcset="{{url}}.{{ext}} 1x , {{url}}@2x.{{ext}} 2x">
+</picture>
+{% endmacro %}
