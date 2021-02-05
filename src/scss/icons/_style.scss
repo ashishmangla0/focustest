@@ -1,0 +1,37 @@
+@import "variables";
+.icon-arrow-down {
+  &:before {
+    content: $icon-arrow-down; 
+  }
+}
+.icon-arrow-left {
+  &:before {
+    content: $icon-arrow-left; 
+  }
+}
+.icon-arrow-right {
+  &:before {
+    content: $icon-arrow-right; 
+  }
+}
+.icon-arrow-up {
+  &:before {
+    content: $icon-arrow-up; 
+  }
+}
+.icon-cross {
+  &:before {
+    content: $icon-cross; 
+  }
+}
+.icon-left-arrow-long {
+  &:before {
+    content: $icon-left-arrow-long; 
+  }
+}
+.icon-right-arrow-long {
+  &:before {
+    content: $icon-right-arrow-long; 
+  }
+}
+
