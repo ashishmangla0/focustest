@@ -23,14 +23,41 @@
   }
   @include element(highlight){
       color: $primaryColor;
-      @extend %weight700;
+      @extend %weight600;
   }
   @include element(content){
+    @include modifier(left){
+      &center{
+     display: flex;
+     align-items: center;
+      }
+
+    }
+    @include modifier(right){
+      &center{
+        @extend .section__content--leftcenter;
+      }
+    }
       p{
           &:last-child{
               margin: 0;
           }
       }
   }
+
+  @include modifier(ccinfo){
+      @include element(card){
+        @extend %notlast30
+      }
+  }
+
+  @include element(row){
+    @extend .row;
+
+    @include modifier(even){
+      @extend %rowreverse;
+    }
+  }
+ 
  
 }

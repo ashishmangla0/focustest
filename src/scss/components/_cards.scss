@@ -3,8 +3,38 @@
     border-radius: rem(6px);
     padding: rem(30px);
     position: relative;
+    border: 1px solid $borderColor;
+
+    &-content {
+      padding: rem(20px) rem(30px);
+    }
     @include modifier(bg) {
       @extend .section--bg;
     }
+    @include modifier(nobor) {
+      border: none;
+    }
+    @include modifier(lefticon) {
+      display: flex;
+      padding: 0;
+    }
+  }
+  @include element(card-left) {
+    background: $bgGray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: rem(30px);
+    border-right: 1px solid $borderColor;
+    min-width: 200px;
+  }
+  @include element(card-content) {
+    @extend %disflexcol;
+  }
+  @include element(harvest) {
+    background-color: #006d51;
+  }
+  @include element(card-link){
+   @extend %textdecnon;
   }
 }

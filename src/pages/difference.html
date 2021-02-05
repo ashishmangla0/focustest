@@ -1,6 +1,44 @@
 
 {% set heroInner = true %}
 {% set heroTitle = 'The Focus Relocation Difference' %}
+{% import 'macros/picture.html' as pictures %}
 {% extends "base.html" %}
+{% set differences = [
+    {
+        'contents':[
+            {'content': "Focus Relocation recognizes and understands the rapidly evolving changes impacting the corporate client today. In support of stakeholder initiatives, the need to balance cost effectiveness with the employee's experience can be challenging."}
+        ]
+    },
+    {
+        'contents':[
+            {'content': "Remaining flexible while providing core services that meet and exceed the expectations of our clients and their relocating employees is a job Focus Relocation does not take lightly! Our goal to provide exceptional customer service is equally matched by our desire to manage your relocation program with a fiscal responsibility that every client deserves. "}
+        ]
+    },
+    {
+        'contents':[
+            {'content': "We pride ourselves in providing flexible solutions and customizing the service delivery model to meet those varying business needs. Our commitment is to provide each and every customer with an exceptional experience, from the college new hire to the VIP executive. "},
+            {'content': "We cultivate relationships with service partners who demonstrate the same level of commitment. "}
+        ]
+    }
+    ] %}
 {% block main %}
+    <section class="section section--diff">
+        <div class="container">
+            {% for difference in differences %}
+            <div class="section__row {{ 'section__row--even' if loop.index%2 == 0 else 'section__row--odd' }}">
+                <div class="col-md-6 {{ 'section__img--right' if loop.index%2 == 0 else 'section__img--left' }}">
+                    {{pictures.picture(['images/diffrence/','diffrence-',loop.index]|join(),'','jpg','')}}
+                </div>
+                <div class="col-md-6 {{ 'section__content--leftcenter' if loop.index%2 == 0 else 'section__content--rightcenter' }}">
+                    <div class="section__content">
+                        {% for content in difference.contents%}
+                        <p>
+                            {{content.content | escape}}
+                        </p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>{% endfor %}
+        </div>
+    </section>
 {% endblock %}
