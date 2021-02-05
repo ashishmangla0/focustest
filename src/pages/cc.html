@@ -1,0 +1,108 @@
+{% set heroInner = true %}
+{% set heroTitle = 'Community Connections' %}
+{% import 'macros/blocktitle.html' as blocktitle %}
+{% import 'macros/picture.html' as pictures %}
+{% set ccitems = [
+    {
+        'contents':[
+            {'content': 'LP Pencil Box Foundation is a teacher supply store stocked with classroom essentials such as pencils, crayons, copy paper, note books, book bags, glue sticks, hand sanitizer and much more. The store exists through generous donations from national brands, the Nashville community, and PENCIL Partners. MNPS teachers can shop twice each school year at absolutely no cost to them.'}
+        ],
+        'linktitle' : 'For More Information visit Pencil for schools',
+        'link' : '#'
+    },
+    {
+        'contents':[
+            {'content': 'Room In The Inn provides programs that emphasize human development & recovery through education, self-help & work, centered in community and long term support for those who call the streets of Nashville home.'},
+            {'content': 'Room In The Inn began in the winter of 1985, when their Founding Director, Father Charles Strobel, opened the doors of his parish to individuals seeking sanctuary in the church parking lot. This simple act of kindness marked the beginning of Room In The Inn.'}
+        ],
+        'linktitle' : 'For More Information visit Pencil for schools',
+        'link' : '#'
+    },
+    {
+        'contents':[
+            {'content': 'Second Harvest Food Bank of Middle Tennessee was founded in 1978 and works to feed hungry people and solve hunger issues in Middle and West Tennessee.'},
+            {'content': 'It has a network of over 490 Partner Agencies working together to feed hungry men, women and children throughout their 46-county service area. Partner Agencies include food pantries, soup kitchens, shelters, senior centers, group homes and youth enrichment programs.'}
+        ],
+        'linktitle' : 'For More Information visit Second Harvest Food Bank Of Middle Tennessee',
+        'link' : '#'
+    },
+    {
+        'contents':[
+            {'content': "United Way of Williamson County wants Williamson County to be a thriving community where everyone can have a safe, stable and successful life. United Way isn't about short-term charity, it's about lasting change. They look at the big picture and bring together a diverse group of people, businesses and organizations to identify solutions to problems that affect us all. United Way invites you to join them in their efforts."}
+        ],
+        'linktitle' : 'For More Information visit United Way Of Williamson Country',
+        'link' : '#'
+    },
+    {
+        'contents':[
+            {'content': "Salvation Army Angel Tree Program is a Christmas Assistance program for families who need help providing gifts and basic needs to their children at Christmas. Families are registered in October and children and seniors will be placed for adoption on the Angel Tree in November."}
+        ],
+        'linktitle' : 'For More Information visit Salvation Army Angel Tree',
+        'link' : '#'
+    },
+    {
+        'contents':[
+            {'content': "Soles4Souls creates sustainable jobs and provides relief through the distribution of shoes and clothing around the world. Since Soles4Souls began in 2006 and have distributed over 30 million pairs of shoes in 127 countries and all 50 United States. Every Single pair of shoes makes a difference in people's lives."}
+        ],
+        'linktitle' : 'For More Information visit Soles4Souls',
+        'link' : '#'
+    }
+    ] %}
+{% extends "base.html" %}
+{% block main %}
+<section class="section section--bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                {{blocktitle.blocktitle('2','Community Connections')}}
+                <div class="section__content">
+                    <p>
+                        <b class="section__highlight">
+                            We believe in giving back.
+                        </b>
+                    </p>
+                    <p>
+                        Thanks to our employees, kids in our community have the tools they need to learn. Through our
+                        collaboration with great organizations like <b class="section__highlight">LP Pencil Box</b> and
+                        <b class="section__highlight">United Ways Stuff the Bus
+                            campaign</b>, children can focus less on what they need and more on what they can be.
+                    </p>
+                    <p>
+                        Through our partnership with <b class="section__highlight">Second Harvest Food Bank of Middle
+                            Tennessee, Room In The Inn, Soles4Souls</b> and the <b class="section__highlight">Salvation
+                            Army Angel Tree</b> we are
+                        able to support families by providing the
+                        very basic necessities needed to support them in their greatest time of need.<br>
+                        <b class="section__highlight"> We can change lives when we work together.</b>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                {{pictures.picture(['images/','cc']|join(),footerImages.title,'jpg','')}}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section section--ccinfo">
+    <div class="container">
+            {% for ccitem in ccitems %}
+            <div class="section__card section__card--lefticon">
+                <div class="section__card-left {{  'section__harvest' if loop.index == 3}}">
+                    {{pictures.picture(['images/cc/','cc-',loop.index]|join(),footerImages.title,'png','')}}
+                </div>
+                <div class="section__card-content">
+                    {% for content in ccitem.contents%}
+                    <p>
+                        {{content.content | escape}}
+                    </p>
+                    {% endfor %}
+                    <a href="{{ccitem.link}}" class="section__highlight section__card-link">
+                        {{ccitem.linktitle}}
+                        <span  class="icon icon-right-arrow-long" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+</section>
+{% endblock %}
