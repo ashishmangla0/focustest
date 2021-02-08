@@ -1,0 +1,34 @@
+{% set heroInner = true %}
+{% set heroTitle = 'Departure Management' %}
+{% import 'macros/blocktitle.html' as blocktitle %}
+{% import 'macros/picture.html' as pictures %}
+{% import 'macros/servicesloop.html' as services %}
+{% set relocation= [
+    {'title' : 'Home Finding Assistance'},
+    {'title' : 'Spouse Assistance'},
+    {'title' : 'Mortgage Services'},
+    {'title' : 'Area Orientation'},
+    {'title' : 'Rental Assistance'},
+    {'title' : 'Temporary Housing'}
+    ] %}
+    {% import 'macros/servicesloop.html' as services %}
+    {% import 'macros/blocktitle.html' as blocktitle %}
+{% extends "base.html" %}
+{% block main %}
+<section class="section section--bg section--bgtop section--wave">
+    <div class="section__wave"></div>
+    <div class="container">
+        {{blocktitle.blocktitle('2','Departure Management')}}
+        <div class="section__content marb-2">
+           <p>
+            <b class="section__highlight">
+                Ensuring a Seamless Start 
+            </b>
+           </p>
+            <p>
+                The decision to relocate a family can often be met with a lot of resistance and requires consultative information to make an informed choice. Having relocation industry experts to guide the employee and client through the process is the key to setting proper expectations. Understanding how the relocation policy supports the family, preparing your home for effective marketing and sale is best supported by professionals who do this every day. 
+            </p>
+        </div>
+        {{services.servicesloop(relocation,'dpm','section__card--type2')}}
+    </div>
+</section>{% endblock %}

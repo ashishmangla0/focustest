@@ -1,0 +1,34 @@
+{% set heroInner = true %}
+{% set heroTitle = 'Destination Management' %}
+{% import 'macros/blocktitle.html' as blocktitle %}
+{% import 'macros/picture.html' as pictures %}
+{% import 'macros/servicesloop.html' as services %}
+{% set relocation= [
+    {'title' : 'Home Finding Assistance'},
+    {'title' : 'Spouse Assistance'},
+    {'title' : 'Mortgage Services'},
+    {'title' : 'Area Orientation'},
+    {'title' : 'Rental Assistance'},
+    {'title' : 'Temporary Housing'}
+    ] %}
+    {% import 'macros/servicesloop.html' as services %}
+    {% import 'macros/blocktitle.html' as blocktitle %}
+{% extends "base.html" %}
+{% block main %}
+<section class="section section--bg section--bgtop section--wave">
+    <div class="section__wave"></div>
+    <div class="container">
+        {{blocktitle.blocktitle('2','Destination Management')}}
+        <div class="section__content marb-2">
+           <p>
+            <b class="section__highlight">
+                Taking The Uncertainty Out Of The Move Equation 
+            </b>
+           </p>
+            <p>
+                Starting a new job in a new city can be an exciting time for your employee. The excitement Is coupled with a multitude of questions and concerns about the new location. At times, your employee may not even know where to start or what questions to ask or know anything about the destination location. Enter Focus Relocation! Our goal is to assist with home finding, to acclimate the family to the new location and get them settled Into their routine as quickly as possible. Our tenured and knowledgeable staff make It happen. helping to manage every detail along the way. 
+            </p>
+        </div>
+        {{services.servicesloop(relocation,'dm','section__card--type2')}}
+    </div>
+</section>{% endblock %}
