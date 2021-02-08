@@ -4,7 +4,7 @@
     padding: rem(30px);
     position: relative;
     border: 1px solid $borderColor;
-
+    background: $lightColor;
     &-content {
       padding: rem(20px) rem(30px);
     }
@@ -16,6 +16,8 @@
     }
     @include modifier(lefticon) {
       display: flex;
+    }
+    @include modifier(p0){
       padding: 0;
     }
     @include modifier(center){
@@ -31,6 +33,9 @@
       bottom: 0;
       background: rgba($textColor, .70);
      }
+    }
+    @include modifier(shadow){
+      box-shadow: 1px 11px 17px 8px rgba($primaryColor, 0.08);
     }
   }
   @include element(card-left) {
@@ -50,6 +55,18 @@
   }
   @include element(card-link){
    @extend %textdecnon;
+  }
+  @include element(icon){
+    height: 100px;
+    background: $bgGray;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+    max-width: 100px;
+    flex: 0 0 100px;
+    margin-right: rem(30px)
+    
   }
   
 }

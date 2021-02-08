@@ -7,26 +7,23 @@
         {'title': 'Contact Us','link':','},
         {'title':' Login','link':','}
     ]%}
+   
 <header class="header">
-    <div class="container">
+    <div class="container header__container">
         <div class="header__logo">
             <a class="header__logo-link" href="/">
                 {{pictures.picture(['images/','logo']|join(),'logo','jpg','')}}
             </a>
         </div>
-        <div class="header__list">
-            <nav>
-                <ul>
-                    {% for headerLink in headerLinks %}
-                        <li>
-                            {{links.link(headerLink.link,headerLink.title)}}
-                        </li>
-                    {% endfor %}
-                </ul>
-            </nav>
-        </div>
-    </div>
-    <div class="container header__container">
-        {{links.link()}}
+        <nav class="header__nav">
+            <ul class="header__list">
+                {% for headerLink in headerLinks %}
+                {% set last =  'header__link btn btn--light' if loop.last else 'header__link' %}
+                    <li class="header__item">
+                        {{links.link(headerLink.link,headerLink.title,last)}}
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
     </div>
 </header>

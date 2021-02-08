@@ -20,4 +20,7 @@
   .marb-#{$i} {
     margin-bottom: #{$i}rem;
   }
+  .mart-#{$i} {
+    margin-top: #{$i}rem;
+  }
 }

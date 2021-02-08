@@ -3,13 +3,17 @@
     border-radius: rem(6px) rem(6px) 0 0;
     overflow: hidden;
     position: relative;
-
+background: $lightColor;
     img{
       width: 100%;
     }
   }
   &__item {
     padding: 0 15px;
+    @include media-breakpoint-up(sm) {
+      max-width: 50%;
+      flex: 0 0 50%;
+    }
     @include media-breakpoint-up(md) {
       max-width: 50%;
       flex: 0 0 50%;
@@ -19,6 +23,14 @@
       flex: 0 0 33.33333333%;
 
       &:not(:nth-last-child(-n + 3)) {
+        margin-bottom: rem(30px);
+      }
+    }
+    @include media-breakpoint-down(xs) {
+      max-width: 1000%;
+      flex: 0 0 100%;
+
+      &:not(:last-child){
         margin-bottom: rem(30px);
       }
     }
@@ -38,7 +50,7 @@
   @include element(card-title) {
     @extend %weight600;
     margin-bottom: rem(8px);
-    @extend %font18;
+    font-size : 1rem;
     min-height: rem(54px);
   }
   @include element(card-content) {

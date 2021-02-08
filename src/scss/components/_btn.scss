@@ -1,0 +1,40 @@
+@include block(btn){
+    display: inline-block;
+   @extend %weight600;
+    color: $textColor;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: rem(8px) rem(16px);
+    line-height: 1.5;
+    border-radius: rem(4px);
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    @extend %textdecnon;
+    @include modifier(primary){
+        background: $primaryColor;
+        color: $lightColor;
+        border-color: darken($primaryColor, 10%);
+        &:hover{
+            background: darken($primaryColor, 10%);
+        }
+        &-outline{
+            border-color: $primaryColor;
+            background: $lightColor;
+            color: $textColor;
+           
+            &:hover{
+                background: darken($primaryColor, 10%);
+                color: $lightColor;
+            }
+        }
+    }
+    @include modifier(light){
+        background: $lightColor;
+        color: $primaryColor;
+    }
+}

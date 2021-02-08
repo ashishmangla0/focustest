@@ -1,3 +1,22 @@
 @include block(header){
     background: $primaryColor;
+    @include element(container){
+        @extend %disflex;
+        @extend %alignCenter;
+
+    }
+    @include element(nav){
+        margin-left: auto;
+    }
+    @include element(list){
+        @extend %nostyle;
+       display: flex;
+    }
+
+    @include element(link){
+        display: block;
+        padding: .5rem 1rem;
+        @extend %textdecnon;
+        color: $lightColor;
+    }
 }

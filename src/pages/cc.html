@@ -87,7 +87,7 @@
 <section class="section section--ccinfo">
     <div class="container">
             {% for ccitem in ccitems %}
-            <div class="section__card section__card--lefticon">
+            <div class="section__card section__card--lefticon section__card--p0">
                 <div class="section__card-left {{  'section__harvest' if loop.index == 3}}">
                     {{pictures.picture(['images/cc/','cc-',loop.index]|join(),footerImages.title,'png','')}}
                 </div>
