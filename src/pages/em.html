@@ -1,0 +1,38 @@
+{% set heroInner = true %}
+{% set heroTitle = 'Expense Management' %}
+{% import 'macros/blocktitle.html' as blocktitle %}
+{% import 'macros/picture.html' as pictures %}
+{% import 'macros/servicesloop.html' as services %}
+{% set relocation= [
+    {'title' : 'Expense Processing'},
+    {'title' : 'Expense Tracking'},
+    {'title' : 'Gross-Up Processing'},
+    {'title' : 'Report Management'}
+    ] %}
+    {% import 'macros/servicesloop.html' as services %}
+    {% import 'macros/blocktitle.html' as blocktitle %}
+{% extends "base.html" %}
+{% block main %}
+<section class="section section--bg section--bgtop section--wave section--em">
+    <div class="section__wave"></div>
+    <div class="container">
+        {{blocktitle.blocktitle('2','Expense Management')}}
+        <div class="section__content marb-2">
+           <p>
+            <b class="section__highlight">
+                Incorporating Consistency And Compliance Into Your Relocation Program 
+            </b>
+           </p>
+            <p>
+                Expense Tracking is performed in accordance with current tax and accounting regulations. Our expense analysts audit expense reports against relocation policies, process payments and submit monthly reports to the client payroll departments to ensure proper reporting to the tax authorities. The expense team will categorize, track and report all relocation expenses, including generating the required individual tax information form directly to your relocating employee. 
+            </p>
+            <p>
+                When clients subscribe to Focus expense management process, a whole new world of reporting becomes available! By tracking all relocation related expenses. Focus can provide valuable reports that capture key expense related information such as program spend, the cost of completed relocations and average costs of moves by program and policy types. These reports can help support critical internal processes like budget management and financial reporting. 
+            </p>
+            <p>
+                Each Focus Relocation client has unique needs related to expense management and reporting. We are prepared to design an expense tracking program that meets and exceeds your expectations. 
+            </p>
+        </div>
+        {{services.servicesloop(relocation,'em','section__card--type2')}}
+    </div>
+</section>{% endblock %}

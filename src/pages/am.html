@@ -4,12 +4,12 @@
 {% import 'macros/picture.html' as pictures %}
 {% import 'macros/servicesloop.html' as services %}
 {% set relocation= [
-    {'title' : 'Client Relationship','content':'From full service to limited benefits to lump sum'},
-    {'title' : 'Program Implementation','content':'Providing all U.S and Canadian inbound logistical'},
-    {'title' : 'Policy Development','content':'A full service lump sum option'},
-    {'title' : 'Reporting & Technology','content':'Total account management support'},
-    {'title' : 'Service Partners','content':'Trusted and vetted service partners'},
-    {'title' : 'Group Move Management','content':'3 portal access 24/7'}
+    {'title' : 'Client Relationship'},
+    {'title' : 'Program Implementation'},
+    {'title' : 'Policy Development'},
+    {'title' : 'Reporting & Technology'},
+    {'title' : 'Service Partners'},
+    {'title' : 'Group Move Management'}
     ] %}
     {% import 'macros/servicesloop.html' as services %}
     {% import 'macros/blocktitle.html' as blocktitle %}
@@ -19,7 +19,7 @@
     <div class="section__wave"></div>
     <div class="container">
         {{blocktitle.blocktitle('2','Strategic Account Management Services')}}
-        <div class="section__content">
+        <div class="section__content marb-2">
             <b class="section__highlight">
                 Acting As A Trusted Advisor For Our Clients 
             </b>
@@ -30,6 +30,6 @@
                 The Account Manager also strategically maneuvers the ever-changing landscape of relocation by keeping up to date on governmental and industry related trends. By doing so, our clients stay educated and informed of the impact to their program and company goals and to ensure the success of the relocation program. 
             </p>
         </div>
-        {{services.servicesloop(relocation,'am')}}
+        {{services.servicesloop(relocation,'am','section__card--type2')}}
     </div>
 </section>{% endblock %}
