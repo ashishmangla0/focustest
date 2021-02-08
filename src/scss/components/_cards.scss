@@ -21,6 +21,17 @@
     @include modifier(center){
       text-align: center;
     }
+    @include modifier(type2){
+     .service__card-title{
+      min-height: auto;
+      margin: 0;
+      text-align: center;
+     }
+     .service__card-contentwrap{
+      bottom: 0;
+      background: rgba($textColor, .70);
+     }
+    }
   }
   @include element(card-left) {
     background: $bgGray;
