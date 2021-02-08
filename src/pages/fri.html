@@ -1,0 +1,24 @@
+{% set heroInner = true %}
+{% set heroTitle = 'Program Management' %}
+{% import 'macros/blocktitle.html' as blocktitle %}
+{% import 'macros/picture.html' as pictures %}
+{% import 'macros/servicesloop.html' as services %}
+{% set relocation= [
+    {'title' : 'Program Management'},
+    {'title' : 'Policy Counseling'},
+    {'title' : 'Departure Management'},
+    {'title' : 'Destination Management'},
+    {'title' : 'Expense Management'},
+    {'title' : 'Account Management'}
+    ] %}
+    {% import 'macros/servicesloop.html' as services %}
+    {% import 'macros/blocktitle.html' as blocktitle %}
+{% extends "base.html" %}
+{% block main %}
+<section class="section section--bg section--bgtop section--wave">
+    <div class="section__wave"></div>
+    <div class="container">
+        {{blocktitle.blocktitle('2','Corporate Relocation Management Services')}}
+        {{services.servicesloop(relocation,'fri','section__card--type2 marb-2')}}
+    </div>
+</section>{% endblock %}

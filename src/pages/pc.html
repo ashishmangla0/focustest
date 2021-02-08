@@ -1,0 +1,32 @@
+{% set heroInner = true %}
+{% set heroTitle = 'Policy Counseling ' %}
+{% import 'macros/blocktitle.html' as blocktitle %}
+{% import 'macros/picture.html' as pictures %}
+{% import 'macros/servicesloop.html' as services %}
+{% set relocation= [
+    {'title' : 'Pre Decision Counseling'},
+    {'title' : 'Policy Administration'},
+    {'title' : 'Exception Management'},
+    {'title' : 'Executive Services'}
+    ] %}
+    {% import 'macros/servicesloop.html' as services %}
+    {% import 'macros/blocktitle.html' as blocktitle %}
+{% extends "base.html" %}
+{% block main %}
+<section class="section section--bg section--bgtop section--wave section--em">
+    <div class="section__wave"></div>
+    <div class="container">
+        {{blocktitle.blocktitle('2','Policy Counseling ')}}
+        <div class="section__content marb-2">
+           <p>
+            <b class="section__highlight">
+                Seamless Transitions = Happy Productive Employees 
+            </b>
+           </p>
+            <p>
+                Focus Relocation is the single point of coordination for every employee during their move to a new location. We serve as an advocate for the entire family and the policy administrator for the corporation. The Relocation Counselor provides move guidance through each phase of the relocation starting with the departure location. The policy is reviewed, expectations are outlined, and the move begins!
+            </p>
+        </div>
+        {{services.servicesloop(relocation,'pc','section__card--type2')}}
+    </div>
+</section>{% endblock %}

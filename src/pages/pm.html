@@ -1,0 +1,34 @@
+{% set heroInner = true %}
+{% set heroTitle = 'Program Management' %}
+{% import 'macros/blocktitle.html' as blocktitle %}
+{% import 'macros/picture.html' as pictures %}
+{% import 'macros/servicesloop.html' as services %}
+{% set relocation= [
+    {'title' : 'Policy Benchmarking'},
+    {'title' : 'Budget Management'},
+    {'title' : 'Policy Development'},
+    {'title' : 'Reporting'},
+    {'title' : 'Technology'},
+    {'title' : 'Policy Counseling '}
+    ] %}
+    {% import 'macros/servicesloop.html' as services %}
+    {% import 'macros/blocktitle.html' as blocktitle %}
+{% extends "base.html" %}
+{% block main %}
+<section class="section section--bg section--bgtop section--wave">
+    <div class="section__wave"></div>
+    <div class="container">
+        {{blocktitle.blocktitle('2','Program Management')}}
+        <div class="section__content marb-2">
+           <p>
+            <b class="section__highlight">
+                Bridging your company's objectives to your relocation program needs.
+            </b>
+           </p>
+            <p>
+                Focus Relocation helps corporate clients develop customized relocation policies and programs that fit their individual needs and culture. In support of total program management, Focus provides valuable resources that help gauge the effectiveness of the relocation policies for both the corporate client as well as the relocating employee. 
+            </p>
+        </div>
+        {{services.servicesloop(relocation,'pm','section__card--type2')}}
+    </div>
+</section>{% endblock %}
