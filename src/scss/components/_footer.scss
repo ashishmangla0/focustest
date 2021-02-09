@@ -26,6 +26,9 @@
   @include element(link) {
     color: $footerText;
     @extend %textdecnon;
+    &:hover,&:focus{
+      color: darken($footerText, 5%);
+    }
   }
   @include element(address) {
     @extend .footer__link;
