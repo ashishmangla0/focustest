@@ -2,7 +2,12 @@
 {% import 'macros/picture.html' as pictures %}
 {% set headerLinks = [
         {'title': 'Home','link':','},
-        {'title': 'Relocation Services','link':','},
+        {'title': 'Relocation Services','link':',',
+         'submenu' : [
+            {'title':'Overview','link':'about.html'},
+            {'title':'The Focus Difference ','link':'difference.html'},
+            {'title':'Community Connections ','link':'cc.html'}]
+        },
         {'title': 'About Us','link':','},
         {'title': 'Contact Us','link':','},
         {'title':' Login','link':','}
@@ -19,10 +24,31 @@
             <ul class="header__list">
                 {% for headerLink in headerLinks %}
                 {% set last =  'header__link btn btn--light' if loop.last else 'header__link' %}
-                    <li class="header__item">
-                        {{links.link(headerLink.link,headerLink.title,last)}}
+                    <li class="header__item {{ 'header__item--submenu' if headerLink.submenu }}">
+                        {% if headerLink.submenu %}
+                            <span class="header__link" role="button" aria-haspopup="true" aria-expanded="false" tabindex="0">{{headerLink.title}}</span>
+                            <ul>
+                                {% for sublink in headerLink.submenu %}
+                                <li>
+                                    {{links.link(sublink.link,sublink.title)}}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            {{links.link(headerLink.link,headerLink.title,last)}}
+                        {% endif %}
                     </li>
                 {% endfor %}
+                <!-- <li class="dropdown">
+                
+                    <a href="#" class="dropdown-toggle menu-vertical" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About us <span class="caret"></span></a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="about-us.php">Overview</a></li>
+                        <li><a href="the-focus-relocation-difference.php">The Focus Difference </a></li>
+                        <li><a href="community-connections.php">Community Connections </a></li>
+                    </ul>
+                </li> -->
             </ul>
         </nav>
     </div>
