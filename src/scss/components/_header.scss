@@ -3,18 +3,24 @@
   @include element(container) {
     @extend %disflex;
     @extend %alignCenter;
+    justify-content: space-between;
   }
   @include element(nav) {
     margin-left: auto;
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
   }
   @include element(list) {
     @extend %nostyle;
-    display: flex;
+    @extend %disflex;
+    @extend %alignCenter;
   }
 
   @include element(link) {
     display: block;
     padding: 0.75rem 1rem;
+    cursor: pointer;
     @extend %textdecnon;
     color: $lightColor;
   }
@@ -26,6 +32,9 @@
       .header__sub-menu {
         display: block;
       }
+    }
+    @include modifier(last) {
+      margin-left: 1rem;
     }
   }
   @include element(sub) {
@@ -60,6 +69,22 @@
       @extend %textdecnon;
       color: $primaryColor;
       width: 100%;
+    }
+  }
+  @include element(button) {
+    border: 1px solid $lightColor;
+    padding: rem(5px);
+    background: transparent;
+    @include element(icon) {
+      background: url("../images/menu.svg") no-repeat;
+      background-size: contain;
+      display: inline-block;
+      width: rem(30px);
+      height: rem(30px);
+      vertical-align: middle;
+    }
+    @include media-breakpoint-up(lg) {
+      display: none;
     }
   }
 }

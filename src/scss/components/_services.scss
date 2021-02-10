@@ -3,8 +3,8 @@
     border-radius: rem(6px) rem(6px) 0 0;
     overflow: hidden;
     position: relative;
-background: $lightColor;
-    img{
+    background: $lightColor;
+    img {
       width: 100%;
     }
   }
@@ -30,7 +30,7 @@ background: $lightColor;
       max-width: 1000%;
       flex: 0 0 100%;
 
-      &:not(:last-child){
+      &:not(:last-child) {
         margin-bottom: rem(30px);
       }
     }
@@ -50,7 +50,7 @@ background: $lightColor;
   @include element(card-title) {
     @extend %weight600;
     margin-bottom: rem(8px);
-    font-size : 1rem;
+    font-size: 1rem;
     min-height: rem(54px);
   }
   @include element(card-content) {

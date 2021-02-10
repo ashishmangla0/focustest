@@ -5,6 +5,15 @@
     position: relative;
     border: 1px solid $borderColor;
     background: $lightColor;
+    @extend %alignCenter;
+
+    &-icon{
+      margin-bottom:rem(30px);
+    }
+    &-title{
+      @extend %weight600;
+      @extend %font18;
+    }
     &-content {
       padding: rem(20px) rem(30px);
     }
@@ -16,26 +25,53 @@
     }
     @include modifier(lefticon) {
       display: flex;
+      align-items: unset;
+      .section__card-icon {
+        max-width: 100px;
+        flex: 0 0 100px;
+        height: 100px;
+        background: $bgGray;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        border-radius: 12px;
+        margin: 0 rem(30px) 0 0;
+      }
     }
-    @include modifier(p0){
+    @include modifier(p0) {
       padding: 0;
     }
-    @include modifier(center){
+    @include modifier(center) {
       text-align: center;
     }
-    @include modifier(type2){
-     .service__card-title{
-      min-height: auto;
-      margin: 0;
-      text-align: center;
-     }
-     .service__card-contentwrap{
-      bottom: 0;
-      background: rgba($textColor, .70);
-     }
+    @include modifier(type2) {
+      .service__card-title {
+        min-height: auto;
+        margin: 0;
+        text-align: center;
+      }
+      .service__card-contentwrap {
+        bottom: 0;
+        background: rgba($textColor, 0.7);
+      }
     }
-    @include modifier(shadow){
+    @include modifier(shadow) {
       box-shadow: 1px 11px 17px 8px rgba($primaryColor, 0.08);
+    }
+    @include modifier(wave){
+      .section__wave{
+        background: url(../images/wave-green.svg) no-repeat;
+        background-size: cover;
+        height: 16px;
+        top:-15px;
+        left:0;
+        right: 0;
+
+      }
+      .section__card-content{
+        background: $primaryColor;
+        padding: rem(10px) rem(15px);
+      }
     }
   }
   @include element(card-left) {
@@ -49,24 +85,12 @@
   }
   @include element(card-content) {
     @extend %disflexcol;
+    position: relative;
   }
   @include element(harvest) {
     background-color: #006d51;
   }
-  @include element(card-link){
-   @extend %textdecnon;
+  @include element(card-link) {
+    @extend %textdecnon;
   }
-  @include element(icon){
-    height: 100px;
-    background: $bgGray;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    border-radius: 12px;
-    max-width: 100px;
-    flex: 0 0 100px;
-    margin-right: rem(30px)
-    
-  }
-  
 }

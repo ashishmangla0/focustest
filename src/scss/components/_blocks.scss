@@ -26,7 +26,6 @@
       
     }
   }
-
   @include element(title) {
     @extend %weight700;
     @extend %font32;
@@ -73,10 +72,21 @@
       }
     }
   }
-
   @include modifier(ccinfo) {
     @include element(card) {
       @extend %notlast30;
+    }
+  }
+  @include modifier(about){
+    @include element(card){
+      padding: rem(30px) 0 0 0;
+
+      &-icon{
+        margin-bottom: rem(40px);
+      }
+    }
+    @include element(card-title){
+      color: $lightColor;
     }
   }
 
@@ -96,6 +106,16 @@
 
     @include modifier(even) {
       @extend %rowreverse;
+    }
+  }
+  @include element(about-item){
+    @include media-breakpoint-down(xs) {
+      max-width: 1000%;
+      flex: 0 0 100%;
+  
+      &:not(:last-child){
+        margin-bottom: rem(30px);
+      }
     }
   }
 }
