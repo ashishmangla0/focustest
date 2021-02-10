@@ -1,40 +1,43 @@
 {% import "macros/link.html" as links %}
 {% import 'macros/picture.html' as pictures %}
 {% set headerLinks = [
-        {'title': 'Home','link':','},
-        {'title': 'Relocation Services','link':',',
+        {'title': 'Home','link':'/'},
+        {'title': 'Relocation Services',
          'submenu' : [
             {'title':'Overview','link':'services.html'},
             {'title':'Program Management','link':'pm.html'},
-            {'title':'Departure Management  ','link':'dm.html'},
-            {'title':'Destination Management  ','link':'cc.html'},
+            {'title':'Departure Management  ','link':'dpm.html'},
+            {'title':'Destination Management  ','link':'dm.html'},
             {'title':'Expense Management','link':'em.html'},
             {'title':'Account Management','link':'am.html'}
             ]
         },
         {
-            'title': 'About Us','link':',',
+            'title': 'About Us',
             'submenu' : [
             {'title':'Overview','link':'about.html'},
             {'title':'The Focus Difference ','link':'difference.html'},
             {'title':'Community Connections ','link':'cc.html'}]
         },
-        {'title': 'Contact Us','link':','},
-        {'title':' Login','link':','}
+        {'title': 'Contact Us','link':'contact.html'},
+        {'title':' Login','link':'login.html'}
     ]%}
-   
 <header class="header">
     <div class="container header__container">
         <div class="header__logo">
-            <a class="header__logo-link" href="/">
-                {{pictures.picture(['images/','logo']|join(),'logo','jpg','')}}
-            </a>
+            <a class="header__logo-link" href="/">{{pictures.picture(['images/','logo']|join(),'logo','jpg','')}}</a>
         </div>
+        <button class="header__button">
+            <span class="header__button__icon">
+                {% include "partials/svgs/menu.html" %}
+            </span>
+        </button>
         <nav class="header__nav">
             <ul class="header__list">
                 {% for headerLink in headerLinks %}
+                {% set lastitem =  'header__item header__item--last' if loop.last else 'header__item' %}
                 {% set last =  'header__link btn btn--light' if loop.last else 'header__link' %}
-                    <li class="header__item {{ 'header__item--submenu' if headerLink.submenu }}">
+                    <li class="{{lastitem}} {{ 'header__item--submenu' if headerLink.submenu }}">
                         {% if headerLink.submenu %}
                             <span class="header__link" role="button" aria-haspopup="true" aria-expanded="false" tabindex="0">{{headerLink.title}}</span>
                             <ul class="header__sub-menu">
@@ -49,16 +52,6 @@
                         {% endif %}
                     </li>
                 {% endfor %}
-                <!-- <li class="dropdown">
-                
-                    <a href="#" class="dropdown-toggle menu-vertical" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About us <span class="caret"></span></a>
-
-                    <ul class="dropdown-menu">
-                        <li><a href="about-us.php">Overview</a></li>
-                        <li><a href="the-focus-relocation-difference.php">The Focus Difference </a></li>
-                        <li><a href="community-connections.php">Community Connections </a></li>
-                    </ul>
-                </li> -->
             </ul>
         </nav>
     </div>
