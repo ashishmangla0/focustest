@@ -6,8 +6,8 @@ import tildeImport from "node-sass-tilde-importer";
 import webp from "gulp-webp";
 import imagemin from "gulp-imagemin";
 import rename from "gulp-rename";
-// import {babel} from 'gulp-babel';
-// import {uglify} from 'gulp-u'
+ import babel from 'gulp-babel';
+ import uglify from 'gulp-uglify'
 
 import nunjucksRende from "gulp-nunjucks-render";
 import gulpNunjucksRender from "gulp-nunjucks-render";
@@ -48,9 +48,17 @@ const minifyCss = () => {
   );
 };
 
-// const compileJs = () => {
-//   return src(scssPath)
-// }
+ const compileJs = () => {
+  return src(jsPath)
+  .pipe(babel({
+      "presets": [
+        [
+          "@babel/preset-env"
+        ]
+      ]
+    }))
+    .pipe(dest(join(paths.dist, "js")));
+ }
 const webpConvert = () => {
   return src(join(paths.src, "images", "**/*.{jpg,png}"))
     .pipe(webp())
@@ -113,24 +121,35 @@ const nunjucksPhp = () => {
 const watchFiles = () => {
   const scssFiles = scssPath;
   const nunjucksFiles = nunjucksPathHTML;
+  const jsFiles = jsPath;
+
   console.log(scssFiles);
   
  // watch(scssFiles,series(compileSCSS,minifyCss));
   watch(scssFiles,series(compileSCSS,minifyCss));
   console.log(nunjucksFiles);
- watch(nunjucksFiles,nunjucksHtml);
+
+   // watch js;
+   watch(jsFiles,series(compileJs));
+   console.log(jsFiles);
+ 
+  watch(nunjucksFiles,nunjucksHtml);
+
  console.log(nunjucksTemplates);
   watch(nunjucksTemplates,nunjucksHtml)
+
+
+
 };
 
 export const watchFile = watchFiles ;
 
 export const build = series(
   parallel(nunjucksHtml,nunjucksPhp),
-  compileSCSS, minifyCss,
+  parallel(compileSCSS,compileJs), 
+  minifyCss,
   parallel(webpConvert, imgCompress),
-  copyFonts,
-  copyJs
+  copyFonts
 );
 export default series(nunjucksHtml,compileSCSS,parallel(copyJs,copyFonts, webpConvert, imgCompress)
 );
