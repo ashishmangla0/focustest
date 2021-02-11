@@ -1,2 +1,2 @@
-import $ from 'jquery';
+import 'jquery';
 import 'slick-carousel';
