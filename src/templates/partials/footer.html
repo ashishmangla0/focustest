@@ -12,8 +12,7 @@
 </svg>
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-        <div class="footer__col">
+      <div class="col-md-3 footer__col">
           <h5 class="footer__title">
             Quick Links
           </h5>
@@ -34,9 +33,8 @@
               </a>
             </li>
           </ul>
-        </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 footer__col">
         <h5 class="footer__title">
           Contact
         </h5>
@@ -50,12 +48,12 @@
           </li>
         </ul>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-5 footer__col">
         <h5 class="footer__title">
           Our Partners
         </h5>
         <div class="row">{% for footerImage in footerImages | batch(3) %}
-          <div class="{{'col-md-5' if loop.index==1 else 'col-md-7'}}">{% for footerImages in footerImage %}{{pictures.picture(['images/',footerImages.title]|join(),footerImages.title,'png','footer__picture')}}{% endfor %}</div>{% endfor %}
+          <div class="col-6 {{'col-md-5' if loop.index==1 else 'col-md-7'}}">{% for footerImages in footerImage %}{{pictures.picture(['images/',footerImages.title]|join(),footerImages.title,'png','footer__picture')}}{% endfor %}</div>{% endfor %}
         </div>
       </div>
     </div>

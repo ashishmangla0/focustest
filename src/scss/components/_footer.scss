@@ -36,7 +36,11 @@
     @extend %textdecnon;
   }
   @include element(col){
-    @extend %notlast;
+    @include media-breakpoint-down(xs) {
+      &:not(:last-child) {
+        margin-bottom: 1.875rem;
+      }
+    }
   }
   @include element(wave){
       &-top{
