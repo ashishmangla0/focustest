@@ -1,4 +1,15 @@
 @include block(btn){
+    &-group{
+        .btn{
+            &:not(:last-child){
+                margin: 0 rem(16px) 0 0 ;
+                @include media-breakpoint-down(sm) {
+                    margin: 0 0 rem(16px) 0;
+                }
+            }
+
+        }
+    }
     display: inline-block;
    @extend %weight600;
     color: $textColor;

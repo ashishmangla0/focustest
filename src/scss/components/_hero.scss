@@ -1,5 +1,71 @@
 @include block(section) {
+  @include element(hero) {
+    &-container {
+      @extend %height100;
+    }
+    &-title {
+      @extend %weight700;
+      font-size: rem(24px);
+    }
+    &-container {
+      color: $lightColor;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    &-contentwrap {
+      max-width: 50%;
+      flex: 0 0 50%;
+      padding-right: 15px;
+      margin-bottom: rem(15px);
+      @include media-breakpoint-down(sm) {
+        max-width: 100%;
+        padding-right: 0;
+
+        .btn {
+          width: 100%;
+          font-size: 0.85rem;
+        }
+      }
+    }
+    &-wrap {
+      margin-bottom: rem(44px);
+    }
+    &-slide {
+      @extend %height100;
+      .slick {
+        &-dots {
+          width: 50%;
+          left: initial;
+          transform: initial;
+          bottom: 90px;
+          @include media-breakpoint-down(sm) {
+            width: 100%;
+          }
+        }
+        &-list {
+          @extend %height100;
+        }
+        &-track {
+          @extend %height100;
+        }
+      }
+      &item {
+        @for $i from 1 through 4 {
+          &#{$i} {
+            background: url(../images/slides/slide#{$i}.jpg) no-repeat bottom;
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
   @include modifier(hero) {
+    &-home {
+      padding: 0;
+      min-height: 600px;
+      height: 600px;
+    }
   }
   @include modifier(hero-in) {
     background: $lightColor url("../images/hero-bg-in.webp") no-repeat top
@@ -20,10 +86,10 @@
       color: $lightColor;
       margin: 0;
     }
-    @include element(title-wave){
-        path{
-            fill: $lightColor;
-        }
+    @include element(title-wave) {
+      path {
+        fill: $lightColor;
+      }
     }
   }
 }

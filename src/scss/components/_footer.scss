@@ -36,7 +36,7 @@
     @extend %textdecnon;
   }
   @include element(col){
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
       &:not(:last-child) {
         margin-bottom: 1.875rem;
       }

@@ -26,6 +26,12 @@
         margin-bottom: rem(30px);
       }
     }
+    @include media-breakpoint-down(sm) {
+      
+      &:not(:nth-last-child(-n+2)) {
+        margin-bottom: rem(30px);
+      }
+    }
     @include media-breakpoint-down(xs) {
       max-width: 1000%;
       flex: 0 0 100%;
@@ -43,6 +49,12 @@
     padding: rem(18px);
     color: $lightColor;
     width: 100%;
+    @include media-breakpoint-down(sm) {
+      bottom: rem(-114px);
+    }
+    @include media-breakpoint-down(xs) {
+      bottom: rem(-98px);
+    }
     &:hover {
       bottom: 0;
     }
@@ -56,5 +68,11 @@
   @include element(card-content) {
     margin: 0;
     min-height: rem(48px);
+    @include media-breakpoint-down(sm) {
+      min-height: rem(96px);
+    }
+    @include media-breakpoint-down(xs) {
+      min-height: rem(72px);
+    }
   }
 }
