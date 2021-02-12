@@ -1,10 +1,99 @@
 {% import 'macros/blocktitle.html' as blocktitle %}
+{% set heroSlides = [
+{
+    'titles' : [
+    { 'title': "Bridging Your Company's Objectives To Your Relocation Program Needs"}
+    ]
+},
+{
+    'titles' : [
+    { 'title': "Mobility Solutions"}
+    ],
+    'contents': [
+        {'content':"We Have Redefined What It Means To Manage Relocation Programs By Challenging Industry Norms. "},
+        {'content':"Focus Relocation Provides Mobility Solutions With A Fresh Approach That Defies Conventional Service Delivery."}
+    ]
+},
+{
+    'titles' : [
+    { 'title': " INNOVATIVE | FLEXIBLE | CONNECTED "}
+    ],
+   
+    'contents': [
+        {'content':"These are the hallmarks of  outstanding customer service you will come to  expect from us."}
+    ]
+},
+{
+    'titles' : [
+    { 'title': "We Have Redefined What It Means To Manage Relocation Programs By Challenging Industry Norms."},
+    { 'title': "Focus Relocation Provides Mobility Solutions With A Fresh Approach That Defies Conventional Service Delivery."}
+    ],
+    'contents': [
+        {'content':"These are the hallmarks of  outstanding customer service you will come to  expect from us."}
+    ]
+}
+]
+%}
 <section class="section section--hero {{'section--hero-in' if heroInner else 'section--hero' }} ">
+    {% if heroInner %}
     <div class="container hero__container">
-        {% if heroInner %}
         {{blocktitle.blocktitle('1',heroTitle)}}
-        {% else %}
-        I am good!
-        {% endif %}
     </div>
+      {% else %}
+      <div class="section__hero-slide">
+          {% for heroSlide in heroSlides %}
+          <div class="section__hero-slideitem section__hero-slideitem{{loop.index}} ">
+            {% for title in heroSlide.titles %}
+            <h2>
+{{title.title}}
+            </h2>
+                        
+                        
+            {% endfor %}
+            {% for content in heroSlide.contents %}
+            {{content.content}}
+            
+{% endfor %}
+              {% if loop.index == 1 %}
+
+              {% else %}
+              {% endif %}
+          </div>
+          {% endfor %}
+        
+          <div class="section__hero-slideitem section__hero-slideitem">
+              asfasdfsdfsdf
+              ssasfsffsdffdfsdfsdfsdf
+              f
+              s
+          </div>
+          <div class="section__hero-slideitem">
+            asfasdfsdfsdf
+            ssasfsffsdffdfsdfsdfsdf
+            f
+            s
+        </div>
+        <div class="section__hero-slideitem">
+            asfasdfsdfsdf
+            ssasfsffsdffdfsdfsdfsdf
+            f
+            s
+        </div>
+        <div class="section__hero-slideitem">
+            asfasdfsdfsdf
+            ssasfsffsdffdfsdfsdfsdf
+            f
+            s
+            4
+        </div>
+      </div>
+      
+      <div class="container hero__container">
+
+        ssasfsffsdffdfsdfsdfsd
+
+      </div>
+   
+    {% endif %}
+    
 </section>
