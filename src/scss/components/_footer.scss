@@ -6,7 +6,7 @@
   position: relative;
   @include element(title){
     margin-bottom: rem(20px);
-    font-size: 1rem;
+    font-size: rem(20px);
     font-weight: 600;
   }
   @include element(picture) {
@@ -27,11 +27,13 @@
     color: $footerText;
     @extend %textdecnon;
     &:hover,&:focus{
-      color: darken($footerText, 5%);
+      color: $lightColor;
+      font-weight: 600;
     }
   }
   @include element(address) {
-    @extend .footer__link;
+    color: $footerText;
+    @extend %textdecnon;
   }
   @include element(col){
     @extend %notlast;

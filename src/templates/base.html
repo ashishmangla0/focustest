@@ -22,8 +22,17 @@
     {% include "partials/hero.html" %}
     {% block main %}{% endblock %}{% include "partials/client.html" %}
   </main>{% block footer %}{% include "partials/footer.html" %}{% endblock %}
-  <script src="js/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+{% if not(heroInner) %}
+<script>
+    $(document).ready(function(){
+      $('.section__hero-slide').slick({
+
+      });
+    })
+</script>
+{% endif %}
   <script>
     $(document).ready(function(){
   $('.testimonials--slider').slick({

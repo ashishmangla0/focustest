@@ -6,8 +6,8 @@ import tildeImport from "node-sass-tilde-importer";
 import webp from "gulp-webp";
 import imagemin from "gulp-imagemin";
 import rename from "gulp-rename";
- import babel from 'gulp-babel';
- import uglify from 'gulp-uglify'
+//  import babel from 'gulp-babel';
+//  import uglify from 'gulp-uglify'
 
 import nunjucksRende from "gulp-nunjucks-render";
 import gulpNunjucksRender from "gulp-nunjucks-render";
@@ -48,17 +48,17 @@ const minifyCss = () => {
   );
 };
 
- const compileJs = () => {
-  return src(jsPath)
-  .pipe(babel({
-      "presets": [
-        [
-          "@babel/preset-env"
-        ]
-      ]
-    }))
-    .pipe(dest(join(paths.dist, "js")));
- }
+//  const compileJs = () => {
+//   return src(jsPath)
+//   .pipe(babel({
+//       "presets": [
+//         [
+//           "@babel/preset-env"
+//         ]
+//       ]
+//     }))
+//     .pipe(dest(join(paths.dist, "js")));
+//  }
 const webpConvert = () => {
   return src(join(paths.src, "images", "**/*.{jpg,png}"))
     .pipe(webp())
@@ -130,8 +130,8 @@ const watchFiles = () => {
   console.log(nunjucksFiles);
 
    // watch js;
-   watch(jsFiles,series(compileJs));
-   console.log(jsFiles);
+  //  watch(jsFiles,series(compileJs));
+  //  console.log(jsFiles);
  
   watch(nunjucksFiles,nunjucksHtml);
 
@@ -146,7 +146,7 @@ export const watchFile = watchFiles ;
 
 export const build = series(
   parallel(nunjucksHtml,nunjucksPhp),
-  parallel(compileSCSS,compileJs), 
+  parallel(compileSCSS), 
   minifyCss,
   parallel(webpConvert, imgCompress),
   copyFonts
