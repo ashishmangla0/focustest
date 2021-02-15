@@ -6,25 +6,66 @@
     justify-content: space-between;
   }
   @include element(nav) {
+    &-close{
+      position: absolute;
+      top:10px;
+      right:10px;
+      padding: 0;
+      border: none;
+      background: transparent;
+
+      span{
+        font-size: rem(28px);
+      }
+      @include media-breakpoint-up(md) {
+        display: none;
+      }
+    }
     margin-left: auto;
     @include media-breakpoint-down(md) {
+      width: 100%;
+      left: 0;
+      top: 0;
+      position: fixed;
+      bottom: 0;
+      background: $lightColor;
+      z-index: 9;
+      padding: rem(45px) rem(15px);
+    }
+    @include media-breakpoint-down(md) {
       display: none;
+    }
+    @include modifier(show) {
+      display: flex;
     }
   }
   @include element(list) {
     @extend %nostyle;
     @extend %disflex;
     @extend %alignCenter;
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+      width: 100%;
+    }
   }
-
   @include element(link) {
     display: block;
     padding: 0.75rem 1rem;
     cursor: pointer;
     @extend %textdecnon;
     color: $lightColor;
+    @include media-breakpoint-down(md) {
+      font-weight: 600;
+      width: 100%;
+      color: $primaryColor;
+    }
   }
   @include element(item) {
+    @include modifier(last) {
+    }
+    @include media-breakpoint-down(md) {
+      width: 100%;
+    }
     position: relative;
     &:hover,
     &:focus,
@@ -34,7 +75,13 @@
       }
     }
     @include modifier(last) {
-      margin-left: 1rem;
+      margin: 0 0 0 1rem;
+      @include media-breakpoint-down(md) {
+        margin: 0.75rem 0 0 0;
+        .btn {
+          border: 1px solid $primaryColor;
+        }
+      }
     }
   }
   @include element(sub) {
@@ -55,9 +102,24 @@
       border: 1px solid rgba(0, 0, 0, 0.15);
       border-radius: 0.25rem;
       overflow: hidden;
+
+      @include media-breakpoint-down(md) {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        width: 100%;
+        background: transparent;
+        border: none;
+        .header__sub-link {
+          font-weight: 400;
+        }
+      }
     }
     &-item {
       padding: 0.75rem rem(10px);
+      @include media-breakpoint-down(md) {
+        padding: 0.75rem 1rem;
+      }
       &:hover {
         background: #cde5cc;
         .header__sub-link {
