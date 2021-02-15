@@ -25,18 +25,24 @@
 }
 ]%}
 {% block main %}
-<section class="section section--bgtop section--wave">
+<section class="section section--bgtop section--wave section--login">
     <div class="section__wave"></div>
     <div class="container">
         {{blocktitle.blocktitle('2','Login to Access Your Account')}}
         <div class="row">
             {% for login in logins %}
-            <div class="col-lg-4">
+            <div class="col-lg-4 section__login-item col-md-6">
                 <div class="section__card section__card--bg section__card--center">
+                    <div class="section__card-icon">
+                        {% set path = login.title|replace(' ','')|lower %}
+                        {% set fullpath = ['partials/svgs/',path,'.html'] | join %}
+                        {% include fullpath %}
+                    </div>
                     <h3 class="section__card-title">
                         {{login.title}}
                     </h3>
                     <p>
+
                         {{login.desc}}
                     </p>
                     {{links.link(login.link,login.linktitle,'btn btn--primary')}}

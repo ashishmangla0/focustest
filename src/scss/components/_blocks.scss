@@ -196,6 +196,38 @@
       font-weight: 600;
     }
   }
+
+  @include element(login){
+    &-item{
+      .section__card-icon{
+        margin-bottom: rem(10px);
+      }
+      @include media-breakpoint-up(xl) {
+        p{
+          min-height: 96px;
+        }
+      }
+      @include media-breakpoint-down(lg) {
+        p{
+          min-height: 120px;
+        }
+      }
+      @include media-breakpoint-down(md) {
+      
+        &:not(:nth-last-child(-n+2)) {
+          margin-bottom: rem(30px);
+        }
+        p{
+          min-height: 96px;
+        }
+      }
+      @include media-breakpoint-down(xs) {
+        &:not(:last-child){
+          margin-bottom: rem(30px);
+        }
+      }
+    }
+  }
 }
 
 
