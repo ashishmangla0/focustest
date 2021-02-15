@@ -1,0 +1,19 @@
+@include block(form) {
+    @include element(group){
+        margin-bottom: rem(20px);
+    }
+    @include element(label){
+        margin-bottom: rem(8px);
+        color: $textColor;
+        display: inline-block;
+    }
+    @include element(input){
+        width: 100%;
+        border: 1px solid #E7EFE8;
+        background: $bgGray;
+        height: 2.5rem;
+        border-radius: rem(6px);
+        font-size: rem(16px);
+        padding: rem(8px);
+    }
+}
