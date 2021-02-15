@@ -1,56 +1,53 @@
-
+{% set testimonial = false %}
 {% set heroInner = true %}
 {% set heroTitle = 'Contact Us' %}
 {% import 'macros/picture.html' as pictures %}
 {% extends "base.html" %}
 {% import 'macros/blocktitle.html' as blocktitle %}
-{% set differences = [
+{% import 'macros/inputFeilds.html' as field %}
+{% set forms = [
     {
-        'contents':[
-            {'content': "Focus Relocation recognizes and understands the rapidly evolving changes impacting the corporate client today. In support of stakeholder initiatives, the need to balance cost effectiveness with the employee's experience can be challenging."}
-        ]
+        'title' : 'First Name',
+        'type' : 'text'
     },
     {
-        'contents':[
-            {'content': "Remaining flexible while providing core services that meet and exceed the expectations of our clients and their relocating employees is a job Focus Relocation does not take lightly! Our goal to provide exceptional customer service is equally matched by our desire to manage your relocation program with a fiscal responsibility that every client deserves. "}
-        ]
+        'title' : 'Last Name',
+        'type' : 'text'
     },
     {
-        'contents':[
-            {'content': "We pride ourselves in providing flexible solutions and customizing the service delivery model to meet those varying business needs. Our commitment is to provide each and every customer with an exceptional experience, from the college new hire to the VIP executive. "},
-            {'content': "We cultivate relationships with service partners who demonstrate the same level of commitment. "}
-        ]
+        'title' : 'Email',
+        'type' : 'email'
+    },
+    {
+        'title' : 'Your Comments',
+        'type' : 'textarea'
     }
+
     ] %}
 {% block main %}
     <section class="section section--wave section--bgtop">
         <div class="section__wave"></div>
         <div class="container">
-            <div class="row">
-            <div class="col-md-6">
-                <div class="section__card">
+            <div class="section__dflex section__contact">
+                <div class="section__contact-left">
                     {{blocktitle.blocktitle('2',"Let's Get Started",'section__title--2')}}
+                    <form action="">
+                            {% for form in forms %}
+                                    {{field.field(label= form.title,type=form.type,name=form.title|replace(' ','')|lower,id="cont"+form.title|replace(' ','')|lower)}}
+                            {% endfor %}
+                            {{field.button(value="submit",classes="btn--primary btn--block")}}
+                    </form>
                 </div>
-            </div> 
-            <div class="col-md-6">
-                sdasdsa
-            </div> 
+                <div class="section__contact-right">
+                    <h3 class="section__contact-title">
+                        Address
+                    </h3>
+                    <address>
+                        5109 Peter Taylor Park Drive Suite #200 Brentwood, TN 37027
+                    </address>
+
+                </div>
             </div>
-            {% for difference in differences %}
-            <div class="section__row {{ 'section__row--even' if loop.index%2 == 0 else 'section__row--odd' }}">
-                <div class="col-md-6 {{ 'section__img--right' if loop.index%2 == 0 else 'section__img--left' }}">
-                    {{pictures.picture(['images/diffrence/','diffrence-',loop.index]|join(),'','jpg','')}}
-                </div>
-                <div class="col-md-6 {{ 'section__content--leftcenter' if loop.index%2 == 0 else 'section__content--rightcenter' }}">
-                    <div class="section__content">
-                        {% for content in difference.contents%}
-                        <p>
-                            {{content.content | escape}}
-                        </p>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>{% endfor %}
         </div>
     </section>
 {% endblock %}

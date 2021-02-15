@@ -1,3 +1,4 @@
+{% set testimonial = true %}
 {% set heroInner = true %}
 {% set heroTitle = 'Community Connections' %}
 {% import 'macros/blocktitle.html' as blocktitle %}
@@ -53,7 +54,7 @@
 <section class="section section--bg section--bgtop section--wave">
     <div class="section__wave"></div>
     <div class="container">
-        <div class="row">
+        <div class="row row--invert row--cc">
             <div class="col-md-6">
                 {{blocktitle.blocktitle('2','Community Connections')}}
                 <div class="section__content">
@@ -78,7 +79,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 col-img">
                 {{pictures.picture(['images/','cctop']|join(),'','jpg','')}}
             </div>
         </div>
