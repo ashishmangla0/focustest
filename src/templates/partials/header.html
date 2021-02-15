@@ -33,6 +33,9 @@
             </span>
         </button>
         <nav class="header__nav">
+            <button role="button" class="header__nav-close">
+                <span class="icon icon-cross"></span>
+            </button>
             <ul class="header__list">
                 {% for headerLink in headerLinks %}
                 {% set lastitem =  'header__item header__item--last' if loop.last else 'header__item' %}
